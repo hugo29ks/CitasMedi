@@ -285,7 +285,7 @@ public class AgregarPaciente extends javax.swing.JInternalFrame {
         
     }
     
-     public void ValidarDinero(java.awt.event.KeyEvent evt, JTextField txtPrecio) {
+ /*    public void ValidarDinero(java.awt.event.KeyEvent evt, JTextField txtPrecio) {
         
         char a = evt.getKeyChar();
         
@@ -331,7 +331,7 @@ public class AgregarPaciente extends javax.swing.JInternalFrame {
             }
         }
         
-    }
+    }*/
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 Guardar(); 
@@ -385,11 +385,11 @@ if(!Character.isLetter(a)&&!Character.isISOControl(a)&&a!=' '){
     }//GEN-LAST:event_txtApellidoKeyTyped
 
     private void txtCedulaPaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaPaKeyTyped
-        ValidarDinero(evt, txtCedulaPa);        // TODO add your handling code here:
+       // ValidarDinero(evt, txtCedulaPa);        // TODO add your handling code here:
     }//GEN-LAST:event_txtCedulaPaKeyTyped
 
     private void txtCorreoPaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoPaKeyTyped
-        ValidarDinero(evt, txtCorreoPa);        // TODO add your handling code here:
+       // ValidarDinero(evt, txtCorreoPa);        // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoPaKeyTyped
 
     private void txtCedulaPaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaPaActionPerformed
