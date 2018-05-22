@@ -20,23 +20,21 @@ public class Paciente {
     
 public static ResultSet resultado;
 
-public static void Agregar_Paciente(String Nombre, String Apellido, String Cedula, String Correo, String Genero, String Telefono){
+public static void Agregar_Paciente(String Nombre, String Apellido, String Telefono, String Genero, String Cedula, String Correo){
 
     
         try {
 
         CallableStatement consulta = Conexion.con.prepareCall("{call AgregarPaciente (?,?,?,?,?,?)}");
 
-           
                         consulta.setString(1, Nombre);
                         consulta.setString(2, Apellido);
-                        consulta.setString(3, Cedula);
-                        consulta.setString(4, Correo);
-                        consulta.setString(5, Genero);
-                        consulta.setString(6, Telefono);
+                        consulta.setString(5, Cedula);
+                        consulta.setString(6, Correo);
+                        consulta.setString(4, Genero);
+                        consulta.setString(3, Telefono);
+                      
                         
-                        
-  
                         consulta.execute();
 
          JOptionPane.showMessageDialog(null,"Datos del Paciente guardado correctamente","Información",JOptionPane.INFORMATION_MESSAGE);
