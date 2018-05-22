@@ -243,8 +243,8 @@ public class VerPaciente extends javax.swing.JInternalFrame {
     public void CargarDatos() {
         model.setRowCount(0);
 
-        String[] Header = {"No.", "Nombres", "Apellidos", "Peso", "Altura",
-            "Edad", "Telefono", "Alergias", "Enfermedades", "Tipo Sangre", "Estado"};
+        String[] Header = {"No.", "Nombres", "Apellidos", "Cedula", "Genero",
+            "Telefono", "Correo"};
         model.setColumnIdentifiers(Header);
 
         String[] Datos = new String[11];
@@ -257,13 +257,10 @@ public class VerPaciente extends javax.swing.JInternalFrame {
                 Datos[0] = String.valueOf(resultado.getInt(1));
                 Datos[1] = resultado.getString(2);
                 Datos[2] = resultado.getString(3);
-                Datos[3] = String.valueOf(resultado.getFloat(4));
-                Datos[4] = String.valueOf(resultado.getFloat(5));
-                Datos[5] = String.valueOf(resultado.getInt(6));
+                Datos[3] = resultado.getString(4);
+                Datos[4] = resultado.getString(5);
+                Datos[5] = resultado.getString(6);
                 Datos[6] = resultado.getString(7);
-                Datos[7] = resultado.getString(8);
-                Datos[8] = resultado.getString(9);
-                Datos[9] = resultado.getString(10);
 
                 boolean Estado = resultado.getBoolean(11);
                 String Estate = "Inactivo";
@@ -332,8 +329,8 @@ public class VerPaciente extends javax.swing.JInternalFrame {
            
          model.setRowCount(0);
 
-        String[] Header = {"No.", "Nombres", "Apellidos", "Peso", "Altura",
-            "Edad", "Telefono", "Alergias", "Enfermedades", "Tipo Sangre", "Estado"};
+        String[] Header = {"No.", "Nombres", "Apellidos", "Cedula", "Genero",
+            "Telefono", "Correo"};
         model.setColumnIdentifiers(Header);
 
         String[] Datos = new String[11];
@@ -347,13 +344,10 @@ public class VerPaciente extends javax.swing.JInternalFrame {
                 Datos[0] = String.valueOf(resultado.getInt(1));
                 Datos[1] = resultado.getString(2);
                 Datos[2] = resultado.getString(3);
-                Datos[3] = String.valueOf(resultado.getFloat(4));
-                Datos[4] = String.valueOf(resultado.getFloat(5));
-                Datos[5] = String.valueOf(resultado.getInt(6));
+                Datos[3] = resultado.getString(4);
+                Datos[4] = resultado.getString(5);
+                Datos[5] = resultado.getString(6);
                 Datos[6] = resultado.getString(7);
-                Datos[7] = resultado.getString(8);
-                Datos[8] = resultado.getString(9);
-                Datos[9] = resultado.getString(10);
 
                 boolean Estado = resultado.getBoolean(11);
                 String Estate = "Inactivo";
