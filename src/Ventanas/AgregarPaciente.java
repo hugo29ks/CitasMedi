@@ -257,8 +257,11 @@ public class AgregarPaciente extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public void Guardar(){
+        
         String Nombre = txtNombre.getText().trim();
         String Apellido = txtApellido.getText().trim();
+        String Telefono = txtTelefono.getText().trim();
+        String Genero = (String) cmbGenero.getSelectedItem(); 
         String Cedula = txtCedulaPa.getText().trim();
         String Correo = txtCorreoPa.getText().trim();
         
@@ -266,10 +269,9 @@ public class AgregarPaciente extends javax.swing.JInternalFrame {
         //float Peso = Float.parseFloat(PesoF);
         //float Altura = Float.parseFloat(AlturaF);
     //    int Edad = Integer.parseInt(EdadF);
-        String Genero = (String) cmbGenero.getSelectedItem();
-  //      String Alergias = txtAlergia.getText().trim();
+          //String Alergias = txtAlergia.getText().trim();
     //    String Enfermedades = txtEnfermedad.getText().trim();
-        String Telefono = txtTelefono.getText().trim();
+        
         
         if("".equals(Nombre)||"".equals(Apellido)||"<Seleccione>".equals(Genero)||
                 "".equals(Cedula)||"".equals(Correo)||"".equals(Telefono)){
@@ -278,7 +280,7 @@ public class AgregarPaciente extends javax.swing.JInternalFrame {
                 "Complete",JOptionPane.ERROR_MESSAGE);
         }
         else{
-            Paciente.Agregar_Paciente(Nombre, Apellido, Cedula, Correo, Genero, Telefono);
+            Paciente.Agregar_Paciente(Nombre, Apellido, Telefono, Genero, Cedula, Correo);
             Limpiar();// TODO add your handling code here:
 
             }
