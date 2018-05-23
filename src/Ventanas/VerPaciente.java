@@ -52,27 +52,26 @@ public class VerPaciente extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setTitle("Ver Paciente");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
-            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
-                formInternalFrameOpened(evt);
-            }
-            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
             }
-            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
             }
-            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
             }
-            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
             }
         });
 
@@ -123,14 +122,6 @@ public class VerPaciente extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1436145553_copy.png"))); // NOI18N
-        jButton5.setText("Ver Expediente");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -138,7 +129,7 @@ public class VerPaciente extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 669, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -146,8 +137,6 @@ public class VerPaciente extends javax.swing.JInternalFrame {
                         .addGap(77, 77, 77))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2)
@@ -163,13 +152,12 @@ public class VerPaciente extends javax.swing.JInternalFrame {
                     .addComponent(jLabel1)
                     .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(jButton4))
                 .addContainerGap())
         );
 
@@ -243,8 +231,8 @@ public class VerPaciente extends javax.swing.JInternalFrame {
     public void CargarDatos() {
         model.setRowCount(0);
 
-        String[] Header = {"No.", "Nombres", "Apellidos", "Cedula", "Genero",
-            "Telefono", "Correo"};
+        String[] Header = {"No.", "Nombres", "Apellidos", "Telefono", "Genero",
+            "Cedula", "Correo"};
         model.setColumnIdentifiers(Header);
 
         String[] Datos = new String[11];
@@ -259,10 +247,10 @@ public class VerPaciente extends javax.swing.JInternalFrame {
                 Datos[2] = resultado.getString(3);
                 Datos[3] = resultado.getString(4);
                 Datos[4] = resultado.getString(5);
-                Datos[5] = resultado.getString(6);
-                Datos[6] = resultado.getString(7);
+                Datos[5] = resultado.getString(7);
+                Datos[6] = resultado.getString(8);
 
-                boolean Estado = resultado.getBoolean(11);
+                boolean Estado = resultado.getBoolean(6);
                 String Estate = "Inactivo";
 
                 if (Estado) {
@@ -318,10 +306,6 @@ public class VerPaciente extends javax.swing.JInternalFrame {
         ActDes();   // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        VerExpediente();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
-
     
     public void Buscar(){
     
@@ -329,8 +313,8 @@ public class VerPaciente extends javax.swing.JInternalFrame {
            
          model.setRowCount(0);
 
-        String[] Header = {"No.", "Nombres", "Apellidos", "Cedula", "Genero",
-            "Telefono", "Correo"};
+        String[] Header = {"No.", "Nombres", "Apellidos", "Telefono", "Genero",
+            "Cedula", "Correo"};
         model.setColumnIdentifiers(Header);
 
         String[] Datos = new String[11];
@@ -346,10 +330,10 @@ public class VerPaciente extends javax.swing.JInternalFrame {
                 Datos[2] = resultado.getString(3);
                 Datos[3] = resultado.getString(4);
                 Datos[4] = resultado.getString(5);
-                Datos[5] = resultado.getString(6);
-                Datos[6] = resultado.getString(7);
+                Datos[5] = resultado.getString(7);
+                Datos[6] = resultado.getString(8);
 
-                boolean Estado = resultado.getBoolean(11);
+                boolean Estado = resultado.getBoolean(6);
                 String Estate = "Inactivo";
 
                 if (Estado) {
@@ -406,7 +390,6 @@ Buscar();        // TODO add your handling code here:
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
