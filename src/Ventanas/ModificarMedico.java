@@ -221,7 +221,7 @@ public class ModificarMedico extends javax.swing.JDialog {
         else{
           
             
-      Medico.Actualizar_Medico(IDD, Nombre, Apellido, Cedula, Correo, ID_Especialidad);
+      //Medico.Actualizar_Medico(IDD, Nombre, Apellido, Cedula, Correo, ID_Especialidad);
             
 //            Horario H = new Horario(null, true);
 //            H.setAM(this);
