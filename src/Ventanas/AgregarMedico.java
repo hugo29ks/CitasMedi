@@ -240,8 +240,8 @@ public class AgregarMedico extends javax.swing.JInternalFrame {
             H.setAM(this);
             H.setNombre(Nombre);
             H.setApellido(Apellido);
-            H.setCedula(Cedula);
-            H.setCorreo(Correo);
+            //H.setCedula(Cedula);
+            //H.setCorreo(Correo);
             H.setID_Especialidad(ID_Especialidad);
             H.setVisible(true);
             

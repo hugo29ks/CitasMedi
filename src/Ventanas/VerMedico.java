@@ -210,10 +210,10 @@ else{
         
         model.setRowCount(0);
         
-        String[] Header = {"No.", "Nombres", "Apellidos", "Especialidad", "Estado"};        
+        String[] Header = {"No.", "Nombres", "Apellidos","cedula","correo", "Especialidad", "Estado"};        
         model.setColumnIdentifiers(Header);
         
-        String[] Datos = new String[5];
+        String[] Datos = new String[8];
         
         try {
             
@@ -224,8 +224,9 @@ else{
                 Datos[1] = resultado.getString(2);
                 Datos[2] = resultado.getString(3);
                 Datos[3] = resultado.getString(4);
-                
-                boolean Estado = resultado.getBoolean(5);                
+                Datos[4] = resultado.getString(5);
+                Datos[5] = resultado.getString(6);
+                boolean Estado = resultado.getBoolean(7);                
                 
                 String Estate;
                 

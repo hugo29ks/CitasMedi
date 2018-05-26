@@ -20,7 +20,7 @@ public class Medico {
     
 public static ResultSet resultado;
 
-public static void Agregar_Medico(String Nombre, String Apellido, String Cedula, String Correo, int ID_Especialidad){
+public static void Agregar_Medico(String Nombre, String Apellido, String Cedula, String Correo,int ID_Especialidad){
 
     
         try {
@@ -33,7 +33,7 @@ public static void Agregar_Medico(String Nombre, String Apellido, String Cedula,
                         consulta.setString(2, Apellido);
                         consulta.setString(3, Cedula);
                         consulta.setString(4, Correo);
-                        consulta.setInt(5, ID_Especialidad);
+                        consulta.setInt(3, ID_Especialidad);
                        
                         
   
