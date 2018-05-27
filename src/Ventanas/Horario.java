@@ -589,6 +589,14 @@ public class Horario extends javax.swing.JDialog {
     public void setApellido(String Apellido) {
         this.Apellido = Apellido;
     }
+    
+     public void setCedula(String Cedula) {
+        this.Cedula = Cedula;
+    }
+     
+     public void setCorreo(String Correo) {
+        this.Correo = Correo;
+    }
 
     public void setID_Especialidad(int ID_Especialidad) {
         this.ID_Especialidad = ID_Especialidad;
@@ -1135,11 +1143,5 @@ else{
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 
-    void setCedula(String Cedula) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    void setCorreo(String Correo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 }
