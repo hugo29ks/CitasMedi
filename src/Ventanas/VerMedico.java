@@ -52,20 +52,20 @@ public class VerMedico extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setTitle("Ver Medico");
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
-            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
-                formInternalFrameOpened(evt);
-            }
-            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
             }
-            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
             }
-            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
             }
-            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
             }
         });
 
@@ -128,7 +128,7 @@ public class VerMedico extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1303, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -162,7 +162,7 @@ public class VerMedico extends javax.swing.JInternalFrame {
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        setBounds(0, 0, 705, 510);
+        setBounds(0, 0, 1339, 510);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -210,10 +210,10 @@ else{
         
         model.setRowCount(0);
         
-        String[] Header = {"No.", "Nombres", "Apellidos","cedula","correo", "Especialidad", "Estado"};        
+        String[] Header = {"No.", "Nombres", "Apellidos","Cédula","Correo", "Especialidad", "Estado"};        
         model.setColumnIdentifiers(Header);
         
-        String[] Datos = new String[8];
+        String[] Datos = new String[10];
         
         try {
             
@@ -226,6 +226,7 @@ else{
                 Datos[3] = resultado.getString(4);
                 Datos[4] = resultado.getString(5);
                 Datos[5] = resultado.getString(6);
+             
                 boolean Estado = resultado.getBoolean(7);                
                 
                 String Estate;
@@ -235,7 +236,7 @@ else{
                 if (Estado) {
                     Estate = "Activo";
                 }
-                Datos[4] = Estate;
+                Datos[6] = Estate;
                 
                 model.addRow(Datos);
             }
@@ -314,7 +315,7 @@ else{
            
           model.setRowCount(0);
         
-        String[] Header = {"No.", "Nombres", "Apellidos", "Especialidad", "Estado"};        
+        String[] Header = {"No.", "Nombres", "Apellidos","Cédula","Correo", "Especialidad", "Estado"};        
         model.setColumnIdentifiers(Header);
         
         String[] Datos = new String[5];
@@ -328,8 +329,10 @@ else{
                 Datos[1] = resultado.getString(2);
                 Datos[2] = resultado.getString(3);
                 Datos[3] = resultado.getString(4);
-                
-                boolean Estado = resultado.getBoolean(5);                
+                Datos[4] = resultado.getString(5);
+                Datos[5] = resultado.getString(6);
+             
+                boolean Estado = resultado.getBoolean(7);               
                 
                 String Estate;
                 
@@ -338,7 +341,7 @@ else{
                 if (Estado) {
                     Estate = "Activo";
                 }
-                Datos[4] = Estate;
+                Datos[6] = Estate;
                 
                 model.addRow(Datos);
             }
