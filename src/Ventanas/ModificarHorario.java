@@ -568,7 +568,7 @@ public class ModificarHorario extends javax.swing.JDialog {
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        setSize(new java.awt.Dimension(825, 663));
+        setSize(new java.awt.Dimension(876, 693));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
