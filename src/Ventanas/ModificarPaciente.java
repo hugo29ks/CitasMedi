@@ -109,6 +109,12 @@ public class ModificarPaciente extends javax.swing.JDialog {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtTelefono.setMargin(new java.awt.Insets(4, 4, 4, 4));
+        txtTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelefonoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -269,19 +275,20 @@ public class ModificarPaciente extends javax.swing.JDialog {
     public void Guardar(){
         String Nombre = txtNombre.getText().trim();
         String Apellido = txtApellido.getText().trim();
+        String Telefono = txtTelefono.getText().trim();
+        String Genero = (String) cmbGenero.getSelectedItem();
         String Cedula = txtCedula.getText().trim();
         String Correo = txtCorreo.getText().trim();
-        String Genero = (String) cmbGenero.getSelectedItem();
-        String Telefono = txtTelefono.getText().trim();
         
-        if("".equals(Nombre)||"".equals(Apellido)||"<Seleccione>".equals(Genero)||
+        
+        if("".equals(Nombre)||"".equals(Apellido)||"".equals(Telefono)||"<Seleccione>".equals(Genero)||
                 "".equals(Cedula)||"".equals(Correo)){
                     JOptionPane.showMessageDialog
         (this, "Complete todos los campos y seleccione correctamente",
                 "Complete",JOptionPane.ERROR_MESSAGE);
         }
         else{
-            Paciente.Actualizar_Paciente(IDD,Nombre, Apellido, Cedula, Correo, Genero, Telefono);
+            Paciente.Actualizar_Paciente(IDD,Nombre, Apellido, Telefono, Genero, Cedula, Correo);
             Limpiar();// TODO add your handling code here:
 
             }
@@ -386,6 +393,10 @@ if(!Character.isLetter(a)&&!Character.isISOControl(a)&&a!=' '){
     private void txtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyTyped
   ValidarDinero(evt, txtCorreo);             // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoKeyTyped
+
+    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefonoActionPerformed
 
     
     
