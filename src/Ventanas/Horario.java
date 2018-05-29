@@ -262,7 +262,7 @@ public class Horario extends javax.swing.JDialog {
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(cmbHasta2, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 40, Short.MAX_VALUE))
+                .addGap(0, 20, Short.MAX_VALUE))
         );
         PanelMLayout.setVerticalGroup(
             PanelMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -566,7 +566,7 @@ public class Horario extends javax.swing.JDialog {
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        setSize(new java.awt.Dimension(932, 702));
+        setSize(new java.awt.Dimension(822, 663));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

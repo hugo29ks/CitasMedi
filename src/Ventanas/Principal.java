@@ -259,7 +259,7 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1.add(Reporte);
 
         Servicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1435341838_pharmacy.png"))); // NOI18N
-        Servicio.setText("Administrador del Sistema");
+        Servicio.setText("Sistema");
         Servicio.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
 
         jMenuItem6.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
