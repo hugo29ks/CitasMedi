@@ -62,7 +62,7 @@ public class Principal extends javax.swing.JFrame {
             VerConsulta.setVisible(false);
         }
 
-        if ("Secretaria".equals(Rol)) {
+        if ("Secretaria".equals(Rol)) {//Recepcionista
             Paciente.setVisible(true);
             Cita.setVisible(true);
             Reporte.setVisible(true);
