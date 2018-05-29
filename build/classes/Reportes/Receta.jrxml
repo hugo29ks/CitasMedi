@@ -61,14 +61,14 @@ WHERE RecetaV.`ID_Cita` = $P{ID_C}]]>
 					<textElement>
 						<font size="12" isBold="false"/>
 					</textElement>
-					<text><![CDATA[Direccion: Escuela Politècnica Nacional]]></text>
+					<text><![CDATA[Direccion: Detras de los semaforos de Villa Progreso]]></text>
 				</staticText>
 				<staticText>
 					<reportElement uuid="65f7ae4d-ae37-43dd-a31e-7f295ba9d34c" x="367" y="86" width="228" height="20" forecolor="#FEFEFE"/>
 					<textElement>
 						<font size="12" isBold="false"/>
 					</textElement>
-					<text><![CDATA[Telefonos: 0999949602]]></text>
+					<text><![CDATA[Telefonos: 8888-8888 | 2222-2222]]></text>
 				</staticText>
 			</frame>
 		</band>
