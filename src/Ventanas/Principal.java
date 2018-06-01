@@ -31,14 +31,14 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
     //    this.setResizable(false);
 
-        Especialidad.setVisible(false);
+        //Especialidad.setVisible(false);
         Medico.setVisible(false);
         Paciente.setVisible(false);
         Cita.setVisible(false);
         Consulta.setVisible(false);
         Servicio.setVisible(false);
        // Pago.setVisible(false);
-        Usuario.setVisible(false);
+        //Usuario.setVisible(false);
         Reporte.setVisible(false);
 
     }
@@ -72,14 +72,14 @@ public class Principal extends javax.swing.JFrame {
         }
 
         if ("Admin".equals(Rol)) {
-            Especialidad.setVisible(true);
+            //Especialidad.setVisible(true);
             Medico.setVisible(true);
             Paciente.setVisible(true);
             Cita.setVisible(true);
             Consulta.setVisible(true);
             Servicio.setVisible(true);
           //  Pago.setVisible(true);
-            Usuario.setVisible(true);
+            //Usuario.setVisible(true);
             Reporte.setVisible(true);
         }
 
@@ -110,18 +110,14 @@ public class Principal extends javax.swing.JFrame {
         Consulta = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         VerConsulta = new javax.swing.JMenuItem();
-        Especialidad = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem11 = new javax.swing.JMenuItem();
-        Usuario = new javax.swing.JMenu();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem14 = new javax.swing.JMenuItem();
         Reporte = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
         Servicio = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem15 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem17 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Principal");
@@ -239,58 +235,6 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(Consulta);
 
-        Especialidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1435341819_cross_1.png"))); // NOI18N
-        Especialidad.setText("Especialidad");
-        Especialidad.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
-
-        jMenuItem2.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1435355822_sign-add.png"))); // NOI18N
-        jMenuItem2.setText("Agregar");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        Especialidad.add(jMenuItem2);
-
-        jMenuItem11.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        jMenuItem11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1435355706_computer.png"))); // NOI18N
-        jMenuItem11.setText("Ver");
-        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem11ActionPerformed(evt);
-            }
-        });
-        Especialidad.add(jMenuItem11);
-
-        jMenuBar1.add(Especialidad);
-
-        Usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1436261437_user-group.png"))); // NOI18N
-        Usuario.setText("Usuario");
-        Usuario.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
-
-        jMenuItem10.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        jMenuItem10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1435355822_sign-add.png"))); // NOI18N
-        jMenuItem10.setText("Agregar");
-        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem10ActionPerformed(evt);
-            }
-        });
-        Usuario.add(jMenuItem10);
-
-        jMenuItem14.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        jMenuItem14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1435355706_computer.png"))); // NOI18N
-        jMenuItem14.setText("Ver");
-        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem14ActionPerformed(evt);
-            }
-        });
-        Usuario.add(jMenuItem14);
-
-        jMenuBar1.add(Usuario);
-
         Reporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1435357560_pdf.png"))); // NOI18N
         Reporte.setText("Reportes");
         Reporte.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
@@ -318,12 +262,22 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1.add(Reporte);
 
         Servicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1435341838_pharmacy.png"))); // NOI18N
-        Servicio.setText("Sistema");
+        Servicio.setText("Administrador del Sistema");
         Servicio.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
+
+        jMenuItem15.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        jMenuItem15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1435355706_computer.png"))); // NOI18N
+        jMenuItem15.setText("Ver Especialidades");
+        jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem15ActionPerformed(evt);
+            }
+        });
+        Servicio.add(jMenuItem15);
 
         jMenuItem6.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1435355822_sign-add.png"))); // NOI18N
-        jMenuItem6.setText("Agregar");
+        jMenuItem6.setText("Agregar Especialidad");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem6ActionPerformed(evt);
@@ -331,15 +285,25 @@ public class Principal extends javax.swing.JFrame {
         });
         Servicio.add(jMenuItem6);
 
-        jMenuItem15.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        jMenuItem15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1435355706_computer.png"))); // NOI18N
-        jMenuItem15.setText("Ver");
-        jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem17.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        jMenuItem17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1435355706_computer.png"))); // NOI18N
+        jMenuItem17.setText("Ver Usuarios");
+        jMenuItem17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem15ActionPerformed(evt);
+                jMenuItem17ActionPerformed(evt);
             }
         });
-        Servicio.add(jMenuItem15);
+        Servicio.add(jMenuItem17);
+
+        jMenuItem7.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1435355822_sign-add.png"))); // NOI18N
+        jMenuItem7.setText("Agregar Usuario");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        Servicio.add(jMenuItem7);
 
         jMenuBar1.add(Servicio);
 
@@ -356,12 +320,6 @@ public class Principal extends javax.swing.JFrame {
 
 // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        AgregarEspecialidad AE = new AgregarEspecialidad();
-        this.DesktopPane.add(AE);
-        centerJIF(AE);   // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void AgregarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarPacienteActionPerformed
         AgregarPaciente AP = new AgregarPaciente();
@@ -398,19 +356,6 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
-    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-        AgregarUsuario AU = new AgregarUsuario(this, true);
-        AU.setVisible(true);
-        AU.toFront();// TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem10ActionPerformed
-
-    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
-        VerEspecialidad VE = new VerEspecialidad();
-        this.DesktopPane.add(VE);
-        centerJIF(VE);
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem11ActionPerformed
-
     private void VerMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerMedicoActionPerformed
         VerMedico VM = new VerMedico();
         this.DesktopPane.add(VM);
@@ -423,12 +368,6 @@ public class Principal extends javax.swing.JFrame {
         centerJIF(VP);
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem13ActionPerformed
-
-    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
-        VerUsuario VU = new VerUsuario();
-        this.DesktopPane.add(VU);
-        centerJIF(VU);   // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem14ActionPerformed
 
     private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
         VerCita VC = new VerCita();
@@ -457,16 +396,28 @@ if(opcion==JOptionPane.YES_OPTION){
     }//GEN-LAST:event_formWindowClosing
 
     private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
-        VerServicio VS = new VerServicio();
-        this.DesktopPane.add(VS);
-        centerJIF(VS);    // TODO add your handling code here:
+        VerEspecialidad VE = new VerEspecialidad();
+        this.DesktopPane.add(VE);
+        centerJIF(VE);
     }//GEN-LAST:event_jMenuItem15ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        AgregarServicio AS = new AgregarServicio();
-        this.DesktopPane.add(AS);
-        centerJIF(AS); // TODO add your handling code here:
+       AgregarEspecialidad AE = new AgregarEspecialidad();
+        this.DesktopPane.add(AE);
+        centerJIF(AE);  
     }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        AgregarUsuario AU = new AgregarUsuario(this, true);
+        AU.setVisible(true);
+        AU.toFront();           // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
+    VerUsuario VU = new VerUsuario();
+        this.DesktopPane.add(VU);
+        centerJIF(VU);         // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem17ActionPerformed
 
     public void centerJIF(JInternalFrame jif) {
         Dimension desktopSize = DesktopPane.getSize();
@@ -517,26 +468,22 @@ if(opcion==JOptionPane.YES_OPTION){
     private javax.swing.JMenu Cita;
     private javax.swing.JMenu Consulta;
     private javax.swing.JDesktopPane DesktopPane;
-    private javax.swing.JMenu Especialidad;
     private javax.swing.JMenu Medico;
     private javax.swing.JMenu Paciente;
     private javax.swing.JMenu Reporte;
     private javax.swing.JMenu Servicio;
-    private javax.swing.JMenu Usuario;
     private javax.swing.JMenuItem VerConsulta;
     private javax.swing.JMenuItem VerMedico;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem13;
-    private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem16;
-    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem17;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
