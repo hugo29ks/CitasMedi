@@ -8,6 +8,8 @@ package Ventanas;
 import Clases.Conexion;
 import Clases.Medico;
 import Clases.Paciente;
+import static Clases.Validaciones.validarEmailFuerte;
+import static Clases.Validaciones.verificarCedula;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
@@ -109,6 +111,11 @@ public class ModificarPaciente extends javax.swing.JDialog {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelefonoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -250,17 +257,12 @@ public class ModificarPaciente extends javax.swing.JDialog {
             
         }catch(SQLException ex){}
         
-       // txtAlergia.setText(Alergia);
-       // txtAltura.setText(Altura);
+      
         txtApellido.setText(Apellido);
-       // txtEdad.setText(Edad);
-       // txtEnfermedad.setText(Enfermedades);
         txtNombre.setText(Nombre);
         txtCorreo.setText(Correo);
-       // txtPeso.setText(Peso);
         txtTelefono.setText(Telefono);
         txtCedula.setText(Cedula);
-        
         cmbGenero.setSelectedItem(Genero);
         
     }
@@ -280,8 +282,18 @@ public class ModificarPaciente extends javax.swing.JDialog {
         (this, "Complete todos los campos y seleccione correctamente",
                 "Complete",JOptionPane.ERROR_MESSAGE);
         }
+        if(verificarCedula(Cedula)==false){
+         JOptionPane.showMessageDialog
+        (this, "La cedula ingresada no es valida",
+                "Corrija",JOptionPane.ERROR_MESSAGE);
+        }
+          if(validarEmailFuerte(Correo)==false){
+         JOptionPane.showMessageDialog
+        (this, "El correo no cumple con la estructura correcta Ej:graciela.moreno@epn.edu.ec",
+                "Corrija",JOptionPane.ERROR_MESSAGE);
+        }
         else{
-            Paciente.Actualizar_Paciente(IDD,Nombre, Apellido, Cedula, Correo, Genero, Telefono);
+            Paciente.Actualizar_Paciente(IDD, Nombre, Apellido, Telefono, Genero, Cedula, Correo);
             Limpiar();// TODO add your handling code here:
 
             }
@@ -322,7 +334,7 @@ if(!Character.isLetter(a)&&!Character.isISOControl(a)&&a!=' '){
     }//GEN-LAST:event_txtNombreKeyTyped
 
     
-      public void ValidarDinero(java.awt.event.KeyEvent evt, JTextField txtPrecio) {
+   /*   public void ValidarDinero(java.awt.event.KeyEvent evt, JTextField txtPrecio) {
         
         char a = evt.getKeyChar();
         
@@ -368,7 +380,7 @@ if(!Character.isLetter(a)&&!Character.isISOControl(a)&&a!=' '){
             }
         }
         
-    }
+    }*/
     
     private void txtApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoKeyTyped
 char a = evt.getKeyChar();
@@ -380,12 +392,16 @@ if(!Character.isLetter(a)&&!Character.isISOControl(a)&&a!=' '){
     }//GEN-LAST:event_txtApellidoKeyTyped
 
     private void txtCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaKeyTyped
-  ValidarDinero(evt, txtCedula);             // TODO add your handling code here:
+ 
     }//GEN-LAST:event_txtCedulaKeyTyped
 
     private void txtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyTyped
-  ValidarDinero(evt, txtCorreo);             // TODO add your handling code here:
+
     }//GEN-LAST:event_txtCorreoKeyTyped
+
+    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefonoActionPerformed
 
     
     
