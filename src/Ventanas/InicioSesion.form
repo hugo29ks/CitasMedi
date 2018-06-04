@@ -76,12 +76,12 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Usuario"/>
+        <Property name="text" type="java.lang.String" value="Usuario(*)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Contrasena"/>
+        <Property name="text" type="java.lang.String" value="Contrasena(*)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtUser">

@@ -2,6 +2,20 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/E:/Repositorio%20Github/CitasMedi/src/Ventanas/AgregarPaciente.java</file>
+            <file>file:/E:/Repositorio%20Github/CitasMedi/src/Ventanas/AgregarFactura.java</file>
+            <file>file:/E:/Repositorio%20Github/CitasMedi/src/Ventanas/ModificarPaciente.java</file>
+            <file>file:/E:/Repositorio%20Github/CitasMedi/src/Clases/Paciente.java</file>
+            <file>file:/E:/Repositorio%20Github/CitasMedi/src/Ventanas/VerHorario.java</file>
+            <file>file:/E:/Repositorio%20Github/CitasMedi/src/Ventanas/VerMedico.java</file>
+            <file>file:/E:/Repositorio%20Github/CitasMedi/src/Ventanas/ModificarUsuario.java</file>
+            <file>file:/E:/Repositorio%20Github/CitasMedi/src/Ventanas/VerPaciente.java</file>
+            <file>file:/E:/Repositorio%20Github/CitasMedi/src/Ventanas/ModificarMedico.java</file>
+            <file>file:/E:/Repositorio%20Github/CitasMedi/src/Ventanas/AgregarUsuario.java</file>
+            <file>file:/E:/Repositorio%20Github/CitasMedi/src/Ventanas/AgregarMedico.java</file>
+            <file>file:/E:/Repositorio%20Github/CitasMedi/src/Clases/Conexion.java</file>
+            <file>file:/E:/Repositorio%20Github/CitasMedi/src/Reportes/Expediente.jrxml</file>
+        </group>
     </open-files>
 </project-private>

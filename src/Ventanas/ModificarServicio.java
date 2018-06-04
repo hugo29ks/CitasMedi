@@ -53,7 +53,7 @@ public class ModificarServicio extends javax.swing.JDialog {
         setTitle("Modificar Servicio");
 
         jLabel7.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        jLabel7.setText("Nombre");
+        jLabel7.setText("Nombre(*)");
 
         txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -69,7 +69,7 @@ public class ModificarServicio extends javax.swing.JDialog {
         jScrollPane1.setViewportView(txtDescripcion);
 
         jLabel8.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        jLabel8.setText("Precio");
+        jLabel8.setText("Precio(*)");
 
         txtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {

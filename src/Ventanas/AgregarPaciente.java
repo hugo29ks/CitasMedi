@@ -81,7 +81,7 @@ public class AgregarPaciente extends javax.swing.JInternalFrame {
         });
 
         jLabel7.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        jLabel7.setText("Nombres");
+        jLabel7.setText("Nombres(*)");
 
         txtNombre.setDoubleBuffered(true);
         txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -91,7 +91,7 @@ public class AgregarPaciente extends javax.swing.JInternalFrame {
         });
 
         jLabel10.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        jLabel10.setText("Apellidos");
+        jLabel10.setText("Apellidos(*)");
 
         txtApellido.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -100,10 +100,10 @@ public class AgregarPaciente extends javax.swing.JInternalFrame {
         });
 
         jLabel9.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        jLabel9.setText("Cédula");
+        jLabel9.setText("Cédula(*)");
 
         jLabel13.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        jLabel13.setText("Genero");
+        jLabel13.setText("Genero(*)");
 
         cmbGenero.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>", "Masculino", "Femenino" }));
         cmbGenero.addActionListener(new java.awt.event.ActionListener() {
@@ -124,7 +124,7 @@ public class AgregarPaciente extends javax.swing.JInternalFrame {
         });
 
         jLabel11.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        jLabel11.setText("Correo");
+        jLabel11.setText("Correo(*)");
 
         txtCorreoPa.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -133,7 +133,7 @@ public class AgregarPaciente extends javax.swing.JInternalFrame {
         });
 
         jLabel16.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        jLabel16.setText("Telefono");
+        jLabel16.setText("Telefono(*)");
 
         try {
             txtTelefono.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-####")));

@@ -57,13 +57,13 @@ public class AgregarUsuario extends javax.swing.JDialog {
         });
 
         jLabel2.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
-        jLabel2.setText("Contrasena");
+        jLabel2.setText("Contrasena(*)");
 
         jLabel3.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
-        jLabel3.setText("Nombre Usuario");
+        jLabel3.setText("Nombre Usuario(*)");
 
         jLabel4.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
-        jLabel4.setText("Tipo Usuario");
+        jLabel4.setText("Tipo Usuario(*)");
 
         cmbTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>", "Administrador", "Recepcionista" }));
 
@@ -85,7 +85,7 @@ public class AgregarUsuario extends javax.swing.JDialog {
                             .addComponent(txtUser)
                             .addComponent(txtPass, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
                             .addComponent(cmbTipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

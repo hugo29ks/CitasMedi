@@ -81,7 +81,7 @@ public class AgregarMedico extends javax.swing.JInternalFrame {
         jPanel2.setLayout(new java.awt.GridLayout(6, 2, 0, 12));
 
         jLabel7.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        jLabel7.setText("Nombres");
+        jLabel7.setText("Nombres(*)");
         jPanel2.add(jLabel7);
 
         txtNombre.setDoubleBuffered(true);
@@ -93,7 +93,7 @@ public class AgregarMedico extends javax.swing.JInternalFrame {
         jPanel2.add(txtNombre);
 
         jLabel10.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        jLabel10.setText("Apellidos");
+        jLabel10.setText("Apellidos(*)");
         jPanel2.add(jLabel10);
 
         txtApellido.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -104,7 +104,7 @@ public class AgregarMedico extends javax.swing.JInternalFrame {
         jPanel2.add(txtApellido);
 
         jLabel11.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        jLabel11.setText("Cédula");
+        jLabel11.setText("Cédula(*)");
         jPanel2.add(jLabel11);
 
         txtCedulaMed.addActionListener(new java.awt.event.ActionListener() {
@@ -120,7 +120,7 @@ public class AgregarMedico extends javax.swing.JInternalFrame {
         jPanel2.add(txtCedulaMed);
 
         jLabel12.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        jLabel12.setText("Correo");
+        jLabel12.setText("Correo(*)");
         jPanel2.add(jLabel12);
 
         txtCorreoMed.addActionListener(new java.awt.event.ActionListener() {
@@ -136,7 +136,7 @@ public class AgregarMedico extends javax.swing.JInternalFrame {
         jPanel2.add(txtCorreoMed);
 
         jLabel8.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        jLabel8.setText("Especialidad");
+        jLabel8.setText("Especialidad(*)");
         jPanel2.add(jLabel8);
 
         cmbEspecialidad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>" }));

@@ -82,9 +82,9 @@ public class InicioSesion extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Iniciar Sesion");
 
-        jLabel1.setText("Usuario");
+        jLabel1.setText("Usuario(*)");
 
-        jLabel2.setText("Contrasena");
+        jLabel2.setText("Contrasena(*)");
 
         txtUser.setText("Admin");
         txtUser.addKeyListener(new java.awt.event.KeyAdapter() {

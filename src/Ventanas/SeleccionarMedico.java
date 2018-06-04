@@ -78,7 +78,7 @@ public class SeleccionarMedico extends javax.swing.JDialog {
         jLabel1.setText("Seleccione el Medico");
 
         jLabel2.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        jLabel2.setText("Medico");
+        jLabel2.setText("Medico(*)");
 
         cmbMedico.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>" }));
 

@@ -89,7 +89,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Noto Sans" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Nombres"/>
+                <Property name="text" type="java.lang.String" value="Nombres(*)"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtNombre">
@@ -105,7 +105,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Noto Sans" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Apellidos"/>
+                <Property name="text" type="java.lang.String" value="Apellidos(*)"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtApellido">
@@ -118,7 +118,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Noto Sans" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="C&#xe9;dula"/>
+                <Property name="text" type="java.lang.String" value="C&#xe9;dula(*)"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtCedulaMed">
@@ -132,7 +132,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Noto Sans" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Correo"/>
+                <Property name="text" type="java.lang.String" value="Correo(*)"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtCorreoMed">
@@ -146,7 +146,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Noto Sans" size="14" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Especialidad"/>
+                <Property name="text" type="java.lang.String" value="Especialidad(*)"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JComboBox" name="cmbEspecialidad">

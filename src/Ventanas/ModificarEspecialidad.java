@@ -83,7 +83,7 @@ public class ModificarEspecialidad extends javax.swing.JDialog {
         setTitle("Modificar Especialidad");
 
         jLabel7.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        jLabel7.setText("Nombre");
+        jLabel7.setText("Nombre(*)");
 
         txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -92,7 +92,7 @@ public class ModificarEspecialidad extends javax.swing.JDialog {
         });
 
         jLabel11.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        jLabel11.setText("Descripcion");
+        jLabel11.setText("Descripcion(*)");
 
         txtDescripcion.setColumns(20);
         txtDescripcion.setRows(5);
@@ -107,8 +107,8 @@ public class ModificarEspecialidad extends javax.swing.JDialog {
                 .addGap(30, 30, 30)
                 .addComponent(txtNombre))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );

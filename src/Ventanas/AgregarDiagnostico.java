@@ -74,7 +74,7 @@ public class AgregarDiagnostico extends javax.swing.JDialog {
         setTitle("Agregar Consulta | Diagnostico | Receta | Archivos al expediente");
 
         jLabel14.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
-        jLabel14.setText("Consulta");
+        jLabel14.setText("Consulta(*)");
 
         txtConsulta.setColumns(20);
         txtConsulta.setRows(5);
@@ -86,7 +86,7 @@ public class AgregarDiagnostico extends javax.swing.JDialog {
         jScrollPane1.setViewportView(txtConsulta);
 
         jLabel15.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
-        jLabel15.setText("Diagnostico");
+        jLabel15.setText("Diagnostico(*)");
 
         txtDiagnostico.setColumns(20);
         txtDiagnostico.setRows(5);
@@ -98,7 +98,7 @@ public class AgregarDiagnostico extends javax.swing.JDialog {
         jScrollPane2.setViewportView(txtDiagnostico);
 
         jLabel16.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
-        jLabel16.setText("Receta");
+        jLabel16.setText("Receta(*)");
 
         txtReceta.setColumns(20);
         txtReceta.setRows(5);

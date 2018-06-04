@@ -228,7 +228,7 @@ public class AgregarCita extends javax.swing.JInternalFrame {
         });
 
         jLabel11.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        jLabel11.setText("Especialidad");
+        jLabel11.setText("Especialidad(*)");
 
         cmbEspecialidad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>" }));
         cmbEspecialidad.addItemListener(new java.awt.event.ItemListener() {
@@ -238,12 +238,13 @@ public class AgregarCita extends javax.swing.JInternalFrame {
         });
 
         jLabel16.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        jLabel16.setText("Medico");
+        jLabel16.setText("Medico(*)");
 
         cmbPaciente.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>" }));
 
         jLabel8.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        jLabel8.setText("Paciente");
+        jLabel8.setForeground(new java.awt.Color(51, 0, 51));
+        jLabel8.setText("Paciente(*)");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -255,8 +256,7 @@ public class AgregarCita extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(53, 53, 53)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0))
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
