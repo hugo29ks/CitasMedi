@@ -5,10 +5,7 @@
  */
 package Credenciales;
 
-/**
- *
- * @author Reymundo Tenorio Q
- */
+
 public class UserPass {
     
     public static String User = "root";

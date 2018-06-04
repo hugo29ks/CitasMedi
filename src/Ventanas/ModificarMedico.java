@@ -7,6 +7,9 @@ package Ventanas;
 
 import Clases.Conexion;
 import Clases.Medico;
+import static Clases.Validaciones.validarEmailFuerte;
+import static Clases.Validaciones.verificarCedula;
+
 import java.awt.Toolkit;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -46,6 +49,10 @@ public class ModificarMedico extends javax.swing.JDialog {
         txtNombre = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         txtApellido = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        txtCedula = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        txtCorreo = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         cmbEspecialidad = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
@@ -54,7 +61,7 @@ public class ModificarMedico extends javax.swing.JDialog {
 
         setTitle("Modificar Medico");
 
-        jPanel2.setLayout(new java.awt.GridLayout(4, 2, 0, 12));
+        jPanel2.setLayout(new java.awt.GridLayout(5, 2, 0, 12));
 
         jLabel7.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         jLabel7.setText("Nombres");
@@ -78,6 +85,33 @@ public class ModificarMedico extends javax.swing.JDialog {
             }
         });
         jPanel2.add(txtApellido);
+
+        jLabel11.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        jLabel11.setText("Cédula");
+        jPanel2.add(jLabel11);
+
+        txtCedula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCedulaActionPerformed(evt);
+            }
+        });
+        txtCedula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCedulaKeyTyped(evt);
+            }
+        });
+        jPanel2.add(txtCedula);
+
+        jLabel12.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        jLabel12.setText("Correo");
+        jPanel2.add(jLabel12);
+
+        txtCorreo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCorreoKeyTyped(evt);
+            }
+        });
+        jPanel2.add(txtCorreo);
 
         jLabel8.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
         jLabel8.setText("Especialidad");
@@ -125,25 +159,25 @@ public class ModificarMedico extends javax.swing.JDialog {
                         .addComponent(jButton3))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(50, 50, 50)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 573, Short.MAX_VALUE)))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE)))
                 .addGap(50, 50, 50))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
-                .addContainerGap())
+                .addGap(34, 34, 34))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        setBounds(0, 0, 684, 349);
+        setBounds(0, 0, 684, 366);
     }// </editor-fold>//GEN-END:initComponents
 
     int IDD;
@@ -154,18 +188,23 @@ public class ModificarMedico extends javax.swing.JDialog {
          
         String Nombre="";
         String Apellido = "";
+        String Cedula = "";
+        String Correo = "";
         String Especialidad="";
         
         try{
             
-            resultado = Conexion.consulta("Select ID_Medico, Nombres, Apellidos, Nombre "
+            resultado = Conexion.consulta("Select ID_Medico, Nombres, Apellidos, CedulaMed, CorreoMed, Nombre "
                     + " from MedicoV Where ID_Medico = "+ID);
             
             while(resultado.next()){
              IDD = resultado.getInt(1);
              Nombre = resultado.getString(2);
              Apellido = resultado.getString(3);
-             Especialidad = resultado.getString(4);
+             Cedula = resultado.getString(4);
+             Correo = resultado.getString(5);
+             Especialidad = resultado.getString(6);
+             
                 
             }
             
@@ -173,7 +212,8 @@ public class ModificarMedico extends javax.swing.JDialog {
         
         txtNombre.setText(Nombre);
         txtApellido.setText(Apellido);
-        
+        txtCedula.setText(Cedula);
+        txtCorreo.setText(Correo);       
         
         cmbEspecialidad.setSelectedItem(Especialidad);
         
@@ -184,7 +224,8 @@ public class ModificarMedico extends javax.swing.JDialog {
     public void Guardar(){
         String Nombre = txtNombre.getText().trim();
         String Apellido = txtApellido.getText().trim();
-   
+        String Cedula = txtCedula.getText().trim();
+        String Correo = txtCorreo.getText().trim();   
         int cmbEsp = cmbEspecialidad.getSelectedIndex();
         int ID_Especialidad = ID_Esp[cmbEsp];
      /*   String HoraInicio = (String) cmbDesde.getSelectedItem();
@@ -210,13 +251,23 @@ public class ModificarMedico extends javax.swing.JDialog {
         
              */
         
-        if("".equals(Nombre)||"".equals(Apellido)||cmbEsp==0)
+        if("".equals(Nombre)||"".equals(Apellido)||cmbEsp==0||"".equals(Cedula)||"".equals(Correo))
                 //||"<Seleccione>".equals(HoraFinal)
            //     ||"<Seleccione>".equals(HoraInicio))
         {
                     JOptionPane.showMessageDialog
         (this, "Complete todos los campos y seleccione correctamente",
                 "Complete",JOptionPane.ERROR_MESSAGE);
+        }
+        if(verificarCedula(Cedula)==false){
+         JOptionPane.showMessageDialog
+        (this, "La cedula ingresada no es valida",
+                "Corrija",JOptionPane.ERROR_MESSAGE);
+        }
+         if(validarEmailFuerte(Correo)==false){
+         JOptionPane.showMessageDialog
+        (this, "El correo no cumple con la estructura correcta Ej:graciela.moreno@epn.edu.ec",
+                "Corrija",JOptionPane.ERROR_MESSAGE);
         }
         else{
           
@@ -250,6 +301,8 @@ ModificarHorario();
 
     ResultSet resultado;
     int ID_Esp [];
+    
+    
     
 public void CargarEspecialidad(){
             
@@ -332,6 +385,18 @@ if(!Character.isLetter(a)&&!Character.isISOControl(a)&&a!=' '){
 }        // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidoKeyTyped
 
+    private void txtCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedulaKeyTyped
+
+    private void txtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCorreoKeyTyped
+
+    private void txtCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedulaActionPerformed
+
                                          
 
 
@@ -384,11 +449,15 @@ if(!Character.isLetter(a)&&!Character.isISOControl(a)&&a!=' '){
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtCedula;
+    private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

@@ -129,7 +129,7 @@ public class VerPaciente extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 669, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1252, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -163,7 +163,7 @@ public class VerPaciente extends javax.swing.JInternalFrame {
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        setBounds(0, 0, 705, 510);
+        setBounds(0, 0, 1288, 510);
     }// </editor-fold>//GEN-END:initComponents
 
     public void Expediente(int ID_P, String Paciente) {
@@ -232,7 +232,7 @@ public class VerPaciente extends javax.swing.JInternalFrame {
         model.setRowCount(0);
 
         String[] Header = {"No.", "Nombres", "Apellidos", "Telefono", "Genero",
-            "Cedula", "Correo"};
+            "Cedula", "Correo", "Estado"};
         model.setColumnIdentifiers(Header);
 
         String[] Datos = new String[11];
@@ -256,7 +256,7 @@ public class VerPaciente extends javax.swing.JInternalFrame {
                 if (Estado) {
                     Estate = "Activo";
                 }
-                Datos[10] = Estate;
+                Datos[7] = Estate;
 
                 model.addRow(Datos);
             }
@@ -313,8 +313,8 @@ public class VerPaciente extends javax.swing.JInternalFrame {
            
          model.setRowCount(0);
 
-        String[] Header = {"No.", "Nombres", "Apellidos", "Telefono", "Genero",
-            "Cedula", "Correo"};
+        String[] Header = {"No.", "Nombres", "Apellidos", "Telefono", "Género",
+            "Cédula", "Correo", "Estado"};
         model.setColumnIdentifiers(Header);
 
         String[] Datos = new String[11];
@@ -339,7 +339,7 @@ public class VerPaciente extends javax.swing.JInternalFrame {
                 if (Estado) {
                     Estate = "Activo";
                 }
-                Datos[10] = Estate;
+                Datos[7] = Estate;
 
                 model.addRow(Datos);
             }

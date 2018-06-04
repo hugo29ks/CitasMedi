@@ -8,10 +8,14 @@ package Ventanas;
 import Clases.Conexion;
 import Clases.Medico;
 import Clases.Paciente;
+import static Clases.Validaciones.validarEmailFuerte;
+import static Clases.Validaciones.verificarCedula;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -230,10 +234,10 @@ public class AgregarPaciente extends javax.swing.JInternalFrame {
                 .addGap(50, 50, 50)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(10, 10, 10)
                         .addComponent(jButton2)
-                        .addGap(10, 10, 10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton3))
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50))
@@ -278,6 +282,16 @@ public class AgregarPaciente extends javax.swing.JInternalFrame {
                     JOptionPane.showMessageDialog
         (this, "Complete todos los campos y seleccione correctamente",
                 "Complete",JOptionPane.ERROR_MESSAGE);
+        }
+         if(verificarCedula(Cedula)==false){
+         JOptionPane.showMessageDialog
+        (this, "La cedula ingresada no es valida",
+                "Corrija",JOptionPane.ERROR_MESSAGE);
+        }
+          if(validarEmailFuerte(Correo)==false){
+         JOptionPane.showMessageDialog
+        (this, "El correo no cumple con la estructura correcta Ej:graciela.moreno@epn.edu.ec",
+                "Corrija",JOptionPane.ERROR_MESSAGE);
         }
         else{
             Paciente.Agregar_Paciente(Nombre, Apellido, Telefono, Genero, Cedula, Correo);
@@ -347,6 +361,7 @@ Guardar();
 // TODO add your handling code here:
     }//GEN-LAST:event_formInternalFrameOpened
 
+
     public void Limpiar(){
         txtApellido.setText("");
         txtTelefono.setText("");
@@ -387,7 +402,18 @@ if(!Character.isLetter(a)&&!Character.isISOControl(a)&&a!=' '){
     }//GEN-LAST:event_txtApellidoKeyTyped
 
     private void txtCedulaPaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaPaKeyTyped
-       // ValidarDinero(evt, txtCedulaPa);        // TODO add your handling code here:
+      
+        char a = evt.getKeyChar();
+
+        if (txtCedulaPa.getText().length()>=10){
+             evt.consume();
+    Toolkit.getDefaultToolkit().beep();
+        }
+if(!Character.isDigit(a) ){
+    evt.consume();
+    Toolkit.getDefaultToolkit().beep();
+}        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtCedulaPaKeyTyped
 
     private void txtCorreoPaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoPaKeyTyped

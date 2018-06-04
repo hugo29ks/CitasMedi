@@ -50,7 +50,7 @@ public static void Agregar_Paciente(String Nombre, String Apellido, String Telef
     }
 
 
-public static void Actualizar_Paciente(int ID, String Nombre, String Apellido, String Cedula, String Correo, String Genero, String Telefono){
+public static void Actualizar_Paciente(int ID, String Nombre, String Apellido, String Telefono, String Genero, String Cedula, String Correo){
    
     
     
@@ -61,10 +61,10 @@ public static void Actualizar_Paciente(int ID, String Nombre, String Apellido, S
                         consulta.setInt(1,ID);
                         consulta.setString(2, Nombre);
                         consulta.setString(3, Apellido);
-                        consulta.setString(4, Cedula);
-                        consulta.setString(5, Correo);
-                        consulta.setString(6,Genero);
-                        consulta.setString(7, Telefono);
+                        consulta.setString(6, Cedula);
+                        consulta.setString(7, Correo);
+                        consulta.setString(5,Genero);
+                        consulta.setString(4, Telefono);
                         
                        
 

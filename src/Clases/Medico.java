@@ -33,7 +33,8 @@ public static void Agregar_Medico(String Nombre, String Apellido, String Cedula,
                         consulta.setString(2, Apellido);
                         consulta.setString(3, Cedula);
                         consulta.setString(4, Correo);
-                        consulta.setInt(3, ID_Especialidad);
+                        consulta.setInt(5, ID_Especialidad);
+                        
                        
                         
   
@@ -58,13 +59,13 @@ public static void Actualizar_Medico(int ID, String Nombre, String Apellido, Str
     
         try {
 
-        CallableStatement consulta = Conexion.con.prepareCall("{call ModificarMedico (?,?,?,?,?,?) }");
+        CallableStatement consulta = Conexion.con.prepareCall("{call ModificarMedico (?,?,?,?,?) }");
 
-                        consulta.setInt(1,ID);
-                        consulta.setString(2, Nombre);
-                        consulta.setString(3, Apellido);
-                        consulta.setString(4, Cedula);
-                        consulta.setString(5, Correo);
+                        //consulta.setInt(1,ID);
+                        consulta.setString(1, Nombre);
+                        consulta.setString(2, Apellido);
+                        consulta.setString(3, Cedula);
+                        consulta.setString(4, Correo);
                         consulta.setInt(6, ID_Especialidad);
                         
                        

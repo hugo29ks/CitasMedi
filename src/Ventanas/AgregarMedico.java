@@ -7,10 +7,15 @@ package Ventanas;
 
 import Clases.Conexion;
 import Clases.Medico;
+import static Clases.Validaciones.validarEmailFuerte;
+import static Clases.Validaciones.verificarCedula;
+
 import java.awt.Toolkit;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.StringTokenizer;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -170,10 +175,10 @@ public class AgregarMedico extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(10, 10, 10)
                         .addComponent(jButton2)
-                        .addGap(10, 10, 10)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton3)))
                 .addGap(50, 50, 50))
         );
@@ -224,14 +229,27 @@ public class AgregarMedico extends javax.swing.JInternalFrame {
         }
         
              */
-        
+         
+         
         if("".equals(Nombre)||"".equals(Apellido)|| "".equals(Correo)||"".equals(Cedula)||cmbEsp==0)
                 //||"<Seleccione>".equals(HoraFinal)
            //     ||"<Seleccione>".equals(HoraInicio))
+            
         {
                     JOptionPane.showMessageDialog
         (this, "Complete todos los campos y seleccione correctamente",
                 "Complete",JOptionPane.ERROR_MESSAGE);
+        }
+       
+        if(verificarCedula(Cedula)==false){
+         JOptionPane.showMessageDialog
+        (this, "La cedula ingresada no es valida",
+                "Corrija",JOptionPane.ERROR_MESSAGE);
+        }
+         if(validarEmailFuerte(Correo)==false){
+         JOptionPane.showMessageDialog
+        (this, "El correo no cumple con la estructura correcta Ej:graciela.moreno@epn.edu.ec",
+                "Corrija",JOptionPane.ERROR_MESSAGE);
         }
         else{
           
@@ -240,8 +258,8 @@ public class AgregarMedico extends javax.swing.JInternalFrame {
             H.setAM(this);
             H.setNombre(Nombre);
             H.setApellido(Apellido);
-            //H.setCedula(Cedula);
-            //H.setCorreo(Correo);
+            H.setCedula(Cedula);
+            H.setCorreo(Correo);
             H.setID_Especialidad(ID_Especialidad);
             H.setVisible(true);
             
@@ -252,7 +270,8 @@ public class AgregarMedico extends javax.swing.JInternalFrame {
     }
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-Guardar(); 
+       
+        Guardar(); 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     ResultSet resultado;
@@ -303,6 +322,8 @@ Guardar();
 // TODO add your handling code here:
     }//GEN-LAST:event_formInternalFrameOpened
 
+    
+    
     public void Limpiar(){
         txtApellido.setText("");
         txtNombre.setText("");
@@ -347,11 +368,21 @@ if(!Character.isLetter(a)&&!Character.isISOControl(a)&&a!=' '){
     }//GEN-LAST:event_txtApellidoKeyTyped
 
     private void txtCedulaMedKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaMedKeyTyped
-        // TODO add your handling code here:
+      char a = evt.getKeyChar();
+      
+        if (txtCedulaMed.getText().length()>=10){
+             evt.consume();
+    Toolkit.getDefaultToolkit().beep();
+        }
+
+if(!Character.isDigit(a) ){
+    evt.consume();
+    Toolkit.getDefaultToolkit().beep();
+}        
     }//GEN-LAST:event_txtCedulaMedKeyTyped
 
     private void txtCedulaMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaMedActionPerformed
-        // TODO add your handling code here:
+           // TODO add your handling code here:
     }//GEN-LAST:event_txtCedulaMedActionPerformed
 
     private void txtCorreoMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoMedActionPerformed

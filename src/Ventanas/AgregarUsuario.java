@@ -65,7 +65,7 @@ public class AgregarUsuario extends javax.swing.JDialog {
         jLabel4.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
         jLabel4.setText("Tipo Usuario");
 
-        cmbTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>", "Administrador", "Secretaria", "Caja" }));
+        cmbTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Seleccione>", "Administrador", "Recepcionista" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
