@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ventanas;
 
 import Clases.Conexion;
@@ -11,10 +6,6 @@ import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- *
- * @author UNI
- */
 public class ModificarDiagnostico extends javax.swing.JDialog {
 
     /**
@@ -216,51 +207,49 @@ public class ModificarDiagnostico extends javax.swing.JDialog {
 
     ResultSet resultado;
     int IDD;
-    
-    public void CargarDatos(int ID){
-        
-    
-        String Paciente="";
+
+    public void CargarDatos(int ID) {
+
+        String Paciente = "";
         String Doctor = "";
-        String Descripcion="";
-        String Receta="";
-        String Diagnostico="";
-        
-        try{
-            
+        String Descripcion = "";
+        String Receta = "";
+        String Diagnostico = "";
+
+        try {
+
             resultado = Conexion.consulta("Select ID_Consulta, Descripcion_Consulta, "
                     + "Diagnostico, Receta, Nombres, Apellidos, NombreM, ApellidoM"
-                    + " from Expediente Where ID_Consulta = "+ID);
-            
-            while(resultado.next()){
-             IDD = resultado.getInt(1);
-             Descripcion = resultado.getString(2);
-             Diagnostico = resultado.getString(3);
-             Receta = resultado.getString(4);
-             Paciente = resultado.getString(5).trim()+" "+resultado.getString(6).trim();
-             Doctor = resultado.getString(7).trim()+" "+resultado.getString(8).trim();
-                
+                    + " from Expediente Where ID_Consulta = " + ID);
+
+            while (resultado.next()) {
+                IDD = resultado.getInt(1);
+                Descripcion = resultado.getString(2);
+                Diagnostico = resultado.getString(3);
+                Receta = resultado.getString(4);
+                Paciente = resultado.getString(5).trim() + " " + resultado.getString(6).trim();
+                Doctor = resultado.getString(7).trim() + " " + resultado.getString(8).trim();
+
             }
-            
-        }catch(SQLException ex){}
-        
-      txtConsulta.setText(Descripcion);
-      txtDiagnostico.setText(Diagnostico);
-      txtReceta.setText(Receta);
-      txtDr.setText(Doctor);
-      txtPaciente.setText(Paciente);
-      
-        
+
+        } catch (SQLException ex) {
+        }
+
+        txtConsulta.setText(Descripcion);
+        txtDiagnostico.setText(Diagnostico);
+        txtReceta.setText(Receta);
+        txtDr.setText(Doctor);
+        txtPaciente.setText(Paciente);
+
     }
 
     public void Guardar() {
         String ConsultaF = txtConsulta.getText().trim();
         String Diagnostico = txtDiagnostico.getText().trim();
         String Receta = txtReceta.getText().trim();
-     
 
         Consulta.Actualizar_Consulta(IDD, ConsultaF, Diagnostico, Receta);
-       
+
         Limpiar();
     }
 
@@ -269,13 +258,12 @@ public class ModificarDiagnostico extends javax.swing.JDialog {
     public void setVC(VerConsulta VC) {
         this.VC = VC;
     }
-    
-     
-    public void Limpiar(){
+
+    public void Limpiar() {
         VC.CargarDatos();
         dispose();
     }
-    
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Guardar();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -285,18 +273,16 @@ public class ModificarDiagnostico extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void txtConsultaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtConsultaKeyTyped
-if(evt.getKeyChar() == KeyEvent.VK_TAB){
-  txtDiagnostico.requestFocus();
-}        // TODO add your handling code here:
+        if (evt.getKeyChar() == KeyEvent.VK_TAB) {
+            txtDiagnostico.requestFocus();
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_txtConsultaKeyTyped
 
     private void txtDiagnosticoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDiagnosticoKeyTyped
-if(evt.getKeyChar() == KeyEvent.VK_TAB){
-  txtReceta.requestFocus();
-}        // TODO add your handling code here:
+        if (evt.getKeyChar() == KeyEvent.VK_TAB) {
+            txtReceta.requestFocus();
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_txtDiagnosticoKeyTyped
-  
-  
 
     /**
      * @param args the command line arguments

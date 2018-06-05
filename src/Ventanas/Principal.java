@@ -1,10 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ventanas;
-
 
 import Clases.Panel_Fondo;
 import java.awt.Dimension;
@@ -12,10 +6,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author UNI
- */
 public class Principal extends javax.swing.JFrame {
 
     /**
@@ -29,16 +19,13 @@ public class Principal extends javax.swing.JFrame {
         }
 
         initComponents();
-    //    this.setResizable(false);
 
-        //Especialidad.setVisible(false);
         Medico.setVisible(false);
         Paciente.setVisible(false);
         Cita.setVisible(false);
         Consulta.setVisible(false);
         Servicio.setVisible(false);
-       // Pago.setVisible(false);
-        //Usuario.setVisible(false);
+
         Reporte.setVisible(false);
 
     }
@@ -50,12 +37,6 @@ public class Principal extends javax.swing.JFrame {
     }
 
     public void Iniciar(String Rol) {
-
-        if ("Caja".equals(Rol)) {
-
-           // Pago.setVisible(true);
-
-        }
 
         if ("Medico".equals(Rol)) {
             Consulta.setVisible(true);
@@ -72,14 +53,13 @@ public class Principal extends javax.swing.JFrame {
         }
 
         if ("Admin".equals(Rol)) {
-            //Especialidad.setVisible(true);
+
             Medico.setVisible(true);
             Paciente.setVisible(true);
             Cita.setVisible(true);
             Consulta.setVisible(true);
             Servicio.setVisible(true);
-          //  Pago.setVisible(true);
-            //Usuario.setVisible(true);
+
             Reporte.setVisible(true);
         }
 
@@ -383,14 +363,13 @@ public class Principal extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
 
-int opcion = JOptionPane.showConfirmDialog(this,"Esta seguro que desea cerrar sesion?","Cerrar sesion",JOptionPane.YES_NO_OPTION);
+        int opcion = JOptionPane.showConfirmDialog(this, "Esta seguro que desea cerrar sesion?", "Cerrar sesion", JOptionPane.YES_NO_OPTION);
 
-
-if(opcion==JOptionPane.YES_OPTION){
-    InicioSesion IS = new InicioSesion(null, false);
-    IS.setVisible(true);
-    this.dispose();
-}
+        if (opcion == JOptionPane.YES_OPTION) {
+            InicioSesion IS = new InicioSesion(null, false);
+            IS.setVisible(true);
+            this.dispose();
+        }
 
 // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosing
@@ -402,9 +381,9 @@ if(opcion==JOptionPane.YES_OPTION){
     }//GEN-LAST:event_jMenuItem15ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-       AgregarEspecialidad AE = new AgregarEspecialidad();
+        AgregarEspecialidad AE = new AgregarEspecialidad();
         this.DesktopPane.add(AE);
-        centerJIF(AE);  
+        centerJIF(AE);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
@@ -414,7 +393,7 @@ if(opcion==JOptionPane.YES_OPTION){
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
-    VerUsuario VU = new VerUsuario();
+        VerUsuario VU = new VerUsuario();
         this.DesktopPane.add(VU);
         centerJIF(VU);         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem17ActionPerformed

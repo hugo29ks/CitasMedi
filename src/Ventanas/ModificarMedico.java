@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ventanas;
 
 import Clases.Conexion;
@@ -16,18 +11,15 @@ import java.sql.SQLException;
 import java.util.StringTokenizer;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author UNI
- */
 public class ModificarMedico extends javax.swing.JDialog {
 
     /**
      * Creates new form AgregarDoctor
+     *
      * @param parent
      * @param modal
      */
-    public ModificarMedico (java.awt.Frame parent, boolean modal) {
+    public ModificarMedico(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
@@ -181,208 +173,159 @@ public class ModificarMedico extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     int IDD;
-    
-     public void CargarDatos(int ID){
-        
+
+    public void CargarDatos(int ID) {
+
         CargarEspecialidad();
-         
-        String Nombre="";
+
+        String Nombre = "";
         String Apellido = "";
         String Cedula = "";
         String Correo = "";
-        String Especialidad="";
-        
-        try{
-            
+        String Especialidad = "";
+
+        try {
+
             resultado = Conexion.consulta("Select ID_Medico, Nombres, Apellidos, CedulaMed, CorreoMed, Nombre "
-                    + " from MedicoV Where ID_Medico = "+ID);
-            
-            while(resultado.next()){
-             IDD = resultado.getInt(1);
-             Nombre = resultado.getString(2);
-             Apellido = resultado.getString(3);
-             Cedula = resultado.getString(4);
-             Correo = resultado.getString(5);
-             Especialidad = resultado.getString(6);
-             
-                
+                    + " from MedicoV Where ID_Medico = " + ID);
+
+            while (resultado.next()) {
+                IDD = resultado.getInt(1);
+                Nombre = resultado.getString(2);
+                Apellido = resultado.getString(3);
+                Cedula = resultado.getString(4);
+                Correo = resultado.getString(5);
+                Especialidad = resultado.getString(6);
+
             }
-            
-        }catch(SQLException ex){}
-        
+
+        } catch (SQLException ex) {
+        }
+
         txtNombre.setText(Nombre);
         txtApellido.setText(Apellido);
         txtCedula.setText(Cedula);
-        txtCorreo.setText(Correo);       
-        
+        txtCorreo.setText(Correo);
+
         cmbEspecialidad.setSelectedItem(Especialidad);
-        
-      
-        
+
     }
-    
-    public void Guardar(){
+
+    public void Guardar() {
         String Nombre = txtNombre.getText().trim();
         String Apellido = txtApellido.getText().trim();
         String Cedula = txtCedula.getText().trim();
-        String Correo = txtCorreo.getText().trim();   
+        String Correo = txtCorreo.getText().trim();
         int cmbEsp = cmbEspecialidad.getSelectedIndex();
         int ID_Especialidad = ID_Esp[cmbEsp];
-     /*   String HoraInicio = (String) cmbDesde.getSelectedItem();
-        String HoraFinal = (String) cmbHasta.getSelectedItem();
-        boolean L = ckL.isSelected();
-        boolean M = ckM.isSelected();
-        boolean X = ckX.isSelected();
-        boolean J = ckJ.isSelected();
-        boolean V = ckV.isSelected();
-        boolean S = ckS.isSelected();
-        boolean D = ckD.isSelected();
-        
-        int HRi = cmbDesde.getSelectedIndex();
-        int HRs = cmbHasta.getSelectedIndex();
-        
-        if(HRi>HRs){
-                    JOptionPane.showMessageDialog
-        (this, "La hora de salida no puede ser menor que la de entrada, y la hora de entrada no puede ser mayor que"
-                + " la de salida",
-                "Seleccione correctamente",JOptionPane.ERROR_MESSAGE);
-                    return;
+
+        if ("".equals(Nombre) || "".equals(Apellido) || cmbEsp == 0 || "".equals(Cedula) || "".equals(Correo)) {
+            JOptionPane.showMessageDialog(this, "Complete todos los campos y seleccione correctamente",
+                    "Complete", JOptionPane.ERROR_MESSAGE);
         }
-        
-             */
-        
-        if("".equals(Nombre)||"".equals(Apellido)||cmbEsp==0||"".equals(Cedula)||"".equals(Correo))
-                //||"<Seleccione>".equals(HoraFinal)
-           //     ||"<Seleccione>".equals(HoraInicio))
-        {
-                    JOptionPane.showMessageDialog
-        (this, "Complete todos los campos y seleccione correctamente",
-                "Complete",JOptionPane.ERROR_MESSAGE);
+        if (verificarCedula(Cedula) == false) {
+            JOptionPane.showMessageDialog(this, "La cedula ingresada no es valida",
+                    "Corrija", JOptionPane.ERROR_MESSAGE);
         }
-        if(verificarCedula(Cedula)==false){
-         JOptionPane.showMessageDialog
-        (this, "La cedula ingresada no es valida",
-                "Corrija",JOptionPane.ERROR_MESSAGE);
-        }
-         if(validarEmailFuerte(Correo)==false){
-         JOptionPane.showMessageDialog
-        (this, "El correo no cumple con la estructura correcta Ej:graciela.moreno@epn.edu.ec",
-                "Corrija",JOptionPane.ERROR_MESSAGE);
-        }
-        else{
-          
-            
-      //Medico.Actualizar_Medico(IDD, Nombre, Apellido, Cedula, Correo, ID_Especialidad);
-            
-//            Horario H = new Horario(null, true);
-//            H.setAM(this);
-//            H.setNombre(Nombre);
-//            H.setApellido(Apellido);
-//            H.setID_Especialidad(ID_Especialidad);
-//            H.setVisible(true);
-            
+        if (validarEmailFuerte(Correo) == false) {
+            JOptionPane.showMessageDialog(this, "El correo no cumple con la estructura correcta Ej:graciela.moreno@epn.edu.ec",
+                    "Corrija", JOptionPane.ERROR_MESSAGE);
+        } else {
+
             Limpiar();// TODO add your handling code here:
 
-            }
-        
+        }
+
     }
-    
-    public void ModificarHorario(){
-        
+
+    public void ModificarHorario() {
+
         ModificarHorario MH = new ModificarHorario(null, true);
         MH.setID(IDD);
         MH.CargarDatos(IDD);
         MH.setVisible(true);
     }
-    
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-ModificarHorario(); 
+        ModificarHorario();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     ResultSet resultado;
-    int ID_Esp [];
-    
-    
-    
-public void CargarEspecialidad(){
-            
-     int ID_Especialidad = 0;
-     
-      try{
-         
-     resultado = Conexion.consulta("Select Max(ID_Especialidad) from Especialidad");
-         
-     while(resultado.next()){
-         ID_Especialidad = resultado.getInt(1);
-     }
-     }catch(SQLException ex){
-         
-     }
-        
-      
-      ID_Especialidad++;
-   
-      ID_Esp = new int[ID_Especialidad];
+    int ID_Esp[];
 
+    public void CargarEspecialidad() {
 
-       
-      ID_Esp [0] = 0; 
-      
-      int i = 1;
-      
-      try{
-         
-     resultado = Conexion.consulta("Select ID_Especialidad, Nombre from Especialidad Where Estado = 1");
-         
-     while(resultado.next()){
-         ID_Esp [i] = resultado.getInt(1);
-         cmbEspecialidad.addItem(resultado.getString(2).trim());
-         i++;
-     }
-     }catch(SQLException ex){
-         
-     }
-       
-        
-}
+        int ID_Especialidad = 0;
 
-private VerMedico VM;
+        try {
+
+            resultado = Conexion.consulta("Select Max(ID_Especialidad) from Especialidad");
+
+            while (resultado.next()) {
+                ID_Especialidad = resultado.getInt(1);
+            }
+        } catch (SQLException ex) {
+
+        }
+
+        ID_Especialidad++;
+
+        ID_Esp = new int[ID_Especialidad];
+
+        ID_Esp[0] = 0;
+
+        int i = 1;
+
+        try {
+
+            resultado = Conexion.consulta("Select ID_Especialidad, Nombre from Especialidad Where Estado = 1");
+
+            while (resultado.next()) {
+                ID_Esp[i] = resultado.getInt(1);
+                cmbEspecialidad.addItem(resultado.getString(2).trim());
+                i++;
+            }
+        } catch (SQLException ex) {
+
+        }
+
+    }
+
+    private VerMedico VM;
 
     public void setVM(VerMedico VM) {
         this.VM = VM;
     }
 
-
-    
-    public void Limpiar(){
+    public void Limpiar() {
         VM.CargarDatos();
         dispose();
     }
-    
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-Guardar();        // TODO add your handling code here:
+        Guardar();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-Limpiar();     // TODO add your handling code here:
+        Limpiar();     // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
-char a = evt.getKeyChar();
+        char a = evt.getKeyChar();
 
-if(!Character.isLetter(a)&&!Character.isISOControl(a)&&a!=' '){
-    evt.consume();
-    Toolkit.getDefaultToolkit().beep();
-}        // TODO add your handling code here:
+        if (!Character.isLetter(a) && !Character.isISOControl(a) && a != ' ') {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreKeyTyped
 
     private void txtApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoKeyTyped
-char a = evt.getKeyChar();
+        char a = evt.getKeyChar();
 
-if(!Character.isLetter(a)&&!Character.isISOControl(a)&&a!=' '){
-    evt.consume();
-    Toolkit.getDefaultToolkit().beep();
-}        // TODO add your handling code here:
+        if (!Character.isLetter(a) && !Character.isISOControl(a) && a != ' ') {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidoKeyTyped
 
     private void txtCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaKeyTyped
@@ -397,38 +340,11 @@ if(!Character.isLetter(a)&&!Character.isISOControl(a)&&a!=' '){
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCedulaActionPerformed
 
-                                         
-
-
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VerDetallePago.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VerDetallePago.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VerDetallePago.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VerDetallePago.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 ModificarMedico dialog = new ModificarMedico(new javax.swing.JFrame(), true);

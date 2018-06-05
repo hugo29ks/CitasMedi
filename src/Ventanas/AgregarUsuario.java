@@ -1,17 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ventanas;
 
 import Clases.Usuario;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author UNI
- */
 public class AgregarUsuario extends javax.swing.JDialog {
 
     /**
@@ -117,38 +108,34 @@ public class AgregarUsuario extends javax.swing.JDialog {
         this.NombreUsuario = NombreUsuario;
         this.txtUser.setText(NombreUsuario);
     }
-    
-    
-    
-    public void Guardar(){
+
+    public void Guardar() {
         String Nombre = txtUser.getText().trim();
         String Pass = txtPass.getText();
-        
+
         int Rol = cmbTipo.getSelectedIndex();
-        
-        if("".equals(Nombre)||"".equals(Pass) || Rol == 0){
+
+        if ("".equals(Nombre) || "".equals(Pass) || Rol == 0) {
             JOptionPane.showMessageDialog(this, "Ingrese y seleccione todos los campos", "Ingrese y seleccione", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
-        
+
         String Role = (String) cmbTipo.getSelectedItem();
 
-        if(Rol == 1){
+        if (Rol == 1) {
             Role = "Admin";
         }
-        
+
         Usuario.Agregar_Usuario(Nombre, Pass, Role);
         this.dispose();
     }
-    
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Guardar();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-      
-        
+
 // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
 

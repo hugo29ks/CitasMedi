@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Clases;
 
 import java.sql.CallableStatement;
@@ -10,10 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author UNI
- */
 public class Especialidad {
 
     public static ResultSet resultado;
@@ -58,7 +49,6 @@ public class Especialidad {
         }
     }
 
- 
     public static void Activar_Especialidad(int ID) {
 
         try {
@@ -67,7 +57,7 @@ public class Especialidad {
 
             consulta.setInt(1, ID);
             consulta.execute();
-      JOptionPane.showMessageDialog(null,"Activado Correctamente","Información",JOptionPane.INFORMATION_MESSAGE); 
+            JOptionPane.showMessageDialog(null, "Activado Correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
 
         } catch (SQLException ex) {
 
@@ -84,7 +74,7 @@ public class Especialidad {
 
             consulta.setInt(1, ID);
             consulta.execute();
-      JOptionPane.showMessageDialog(null,"Desactivado Correctamente","Información",JOptionPane.INFORMATION_MESSAGE); 
+            JOptionPane.showMessageDialog(null, "Desactivado Correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
 
         } catch (SQLException ex) {
 

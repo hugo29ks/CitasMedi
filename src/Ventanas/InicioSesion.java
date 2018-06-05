@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ventanas;
 
 import Clases.Conexion;
@@ -13,10 +8,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import org.jvnet.substance.SubstanceLookAndFeel;
 
-/**
- *
- * @author UNI
- */
 public class InicioSesion extends javax.swing.JDialog {
 
     /**
@@ -37,30 +28,6 @@ public class InicioSesion extends javax.swing.JDialog {
 
         SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.CremeCoffeeSkin");
 
-        /* SKINS 
-– org.jvnet.substance.skin.AutumnSkin
-– org.jvnet.substance.skin.BusinessBlackSteelSkin
-– org.jvnet.substance.skin.BusinessBlueSteelSkin =>
-– org.jvnet.substance.skin.BusinessSkin
-– org.jvnet.substance.skin.CremeCoffeeSkin
-– org.jvnet.substance.skin.CremeSkin
-– org.jvnet.substance.skin.EmeraldDuskSkin
-– org.jvnet.substance.skin.FieldOfWheatSkin
-– org.jvnet.substance.skin.FindingNemoSkin
-– org.jvnet.substance.skin.GreenMagicSkin
-– org.jvnet.substance.skin.MagmaSkin
-– org.jvnet.substance.skin.MangoSkin
-– org.jvnet.substance.skin.MistAquaSkin
-– org.jvnet.substance.skin.ModerateSkin
-– org.jvnet.substance.skin.NebulaBrickWallSkin
-– org.jvnet.substance.skin.NebulaSkin
-– org.jvnet.substance.skin.OfficeBlue2007Skin
-– org.jvnet.substance.skin.OfficeSilver2007Skin
-– org.jvnet.substance.skin.RavenGraphiteGlassSkin
-– org.jvnet.substance.skin.RavenGraphiteSkin
-– org.jvnet.substance.skin.RavenSkin
-– org.jvnet.substance.skin.SaharaSkin
-         */
     }
 
     /**
@@ -169,8 +136,7 @@ ResultSet resultado;
 
             try {
                 Conexion C = new Conexion();
-                
-                
+
                 C.Conectar(Credenciales.UserPass.User, Credenciales.UserPass.Pass);
             } catch (SQLException | ClassNotFoundException ex) {
                 System.out.println(ex.getMessage());

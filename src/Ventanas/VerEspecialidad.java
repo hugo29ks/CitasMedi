@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ventanas;
 
 import Clases.Conexion;
@@ -14,10 +9,6 @@ import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author UNI
- */
 public class VerEspecialidad extends javax.swing.JInternalFrame {
 
     /**
@@ -25,7 +16,7 @@ public class VerEspecialidad extends javax.swing.JInternalFrame {
      */
     public VerEspecialidad() {
         initComponents();
-         jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
     }
 
@@ -160,161 +151,150 @@ public class VerEspecialidad extends javax.swing.JInternalFrame {
         setBounds(0, 0, 705, 510);
     }// </editor-fold>//GEN-END:initComponents
 
-    public void Modificar(){
-        
-      
-int Fila = jTable1.getSelectedRow();
+    public void Modificar() {
 
-     //   System.out.println("Fila "+Fila);
+        int Fila = jTable1.getSelectedRow();
 
-if(Fila >= 0){
-  
-    int ID = Integer.parseInt(model.getValueAt(Fila, 0).toString());
-    
-        ModificarEspecialidad ME = new ModificarEspecialidad(null, true);
-        ME.CargarDatos(ID);
-        ME.setVE(this);
-        ME.setVisible(true);
-        
+        //   System.out.println("Fila "+Fila);
+        if (Fila >= 0) {
+
+            int ID = Integer.parseInt(model.getValueAt(Fila, 0).toString());
+
+            ModificarEspecialidad ME = new ModificarEspecialidad(null, true);
+            ME.CargarDatos(ID);
+            ME.setVE(this);
+            ME.setVisible(true);
+
 //        this.toBack();
 //        ME.toFront();
-        
-    
-}
-else{
-    JOptionPane.showMessageDialog(this, "Debe seleccionar el registro a modificar", 
-            "Seleccione", JOptionPane.ERROR_MESSAGE);  
-}
-  
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar el registro a modificar",
+                    "Seleccione", JOptionPane.ERROR_MESSAGE);
+        }
+
     }
-    
-    
+
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-Modificar();
+        Modificar();
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-this.dispose();        // TODO add your handling code here:
+        this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     ResultSet resultado;
-    
+
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
-CargarDatos();
+        CargarDatos();
 // TODO add your handling code here:
     }//GEN-LAST:event_formInternalFrameOpened
 
-    public void ActDes(){
-        
-           
-int Fila = jTable1.getSelectedRow();
-int Col = 3;
+    public void ActDes() {
 
-     //   System.out.println("Fila "+Fila);
+        int Fila = jTable1.getSelectedRow();
+        int Col = 3;
 
-if(Fila >= 0){
-  
-    int ID = Integer.parseInt(model.getValueAt(Fila, 0).toString());
-    String Estado = model.getValueAt(Fila, Col).toString();
-    
-    if(Estado.equalsIgnoreCase("Activo")){
-     Especialidad.Desactivar_Especialidad(ID); //Des  
-    }
-    if(Estado.equalsIgnoreCase("Inactivo")){
-      Especialidad.Activar_Especialidad(ID);  //Act
+        //   System.out.println("Fila "+Fila);
+        if (Fila >= 0) {
+
+            int ID = Integer.parseInt(model.getValueAt(Fila, 0).toString());
+            String Estado = model.getValueAt(Fila, Col).toString();
+
+            if (Estado.equalsIgnoreCase("Activo")) {
+                Especialidad.Desactivar_Especialidad(ID); //Des  
+            }
+            if (Estado.equalsIgnoreCase("Inactivo")) {
+                Especialidad.Activar_Especialidad(ID);  //Act
+            }
+
+            CargarDatos();
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar el registro a Activar/Desactivar",
+                    "Seleccione", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
-    CargarDatos();
-    
-}
-else{
-    JOptionPane.showMessageDialog(this, "Debe seleccionar el registro a Activar/Desactivar", 
-            "Seleccione", JOptionPane.ERROR_MESSAGE);  
-} 
-    }
-    
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-ActDes();        // TODO add your handling code here:
+        ActDes();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    public void Buscar(){
+    public void Buscar() {
         String Buscar = txtBuscar.getText();
-        
+
         model.setRowCount(0);
-        
-String [] Header = {"No.","Nombre","Descripcion","Estado"};    
-model.setColumnIdentifiers(Header);
 
-String [] Datos = new String[4];
+        String[] Header = {"No.", "Nombre", "Descripcion", "Estado"};
+        model.setColumnIdentifiers(Header);
 
-try{
-    
-    resultado = Conexion.consulta("Select * from Especialidad where Nombre like '%"+Buscar+"%'");
-    
-    while(resultado.next()){
-       Datos [0] = String.valueOf(resultado.getInt(1));
-       Datos [1] = resultado.getString(2);
-       Datos [2] = resultado.getString(3);
-       boolean Estado = resultado.getBoolean(4);
-       String Estate = "Inactivo";
-       if(Estado){
-         Estate = "Activo";
-       }
-       Datos [3] = Estate;
-       
-       model.addRow(Datos);
+        String[] Datos = new String[4];
+
+        try {
+
+            resultado = Conexion.consulta("Select * from Especialidad where Nombre like '%" + Buscar + "%'");
+
+            while (resultado.next()) {
+                Datos[0] = String.valueOf(resultado.getInt(1));
+                Datos[1] = resultado.getString(2);
+                Datos[2] = resultado.getString(3);
+                boolean Estado = resultado.getBoolean(4);
+                String Estate = "Inactivo";
+                if (Estado) {
+                    Estate = "Activo";
+                }
+                Datos[3] = Estate;
+
+                model.addRow(Datos);
+            }
+
+        } catch (SQLException ex) {
+
+        }
+
+        jTable1.setModel(model);
+
     }
-    
-}catch(SQLException ex){
-    
-}
 
-jTable1.setModel(model);
-    
 
-        
-    }
-    
-    
     private void txtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyReleased
-Buscar();        // TODO add your handling code here:
+        Buscar();        // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscarKeyReleased
- 
-    public void CargarDatos(){
- 
-model.setRowCount(0);
-        
-String [] Header = {"No.","Nombre","Descripcion","Estado"};    
-model.setColumnIdentifiers(Header);
 
-String [] Datos = new String[4];
+    public void CargarDatos() {
 
-try{
-    
-    resultado = Conexion.consulta("Select * from Especialidad");
-    
-    while(resultado.next()){
-       Datos [0] = String.valueOf(resultado.getInt(1));
-       Datos [1] = resultado.getString(2);
-       Datos [2] = resultado.getString(3);
-       boolean Estado = resultado.getBoolean(4);
-       String Estate = "Inactivo";
-       if(Estado){
-         Estate = "Activo";
-       }
-       Datos [3] = Estate;
-       
-       model.addRow(Datos);
+        model.setRowCount(0);
+
+        String[] Header = {"No.", "Nombre", "Descripcion", "Estado"};
+        model.setColumnIdentifiers(Header);
+
+        String[] Datos = new String[4];
+
+        try {
+
+            resultado = Conexion.consulta("Select * from Especialidad");
+
+            while (resultado.next()) {
+                Datos[0] = String.valueOf(resultado.getInt(1));
+                Datos[1] = resultado.getString(2);
+                Datos[2] = resultado.getString(3);
+                boolean Estado = resultado.getBoolean(4);
+                String Estate = "Inactivo";
+                if (Estado) {
+                    Estate = "Activo";
+                }
+                Datos[3] = Estate;
+
+                model.addRow(Datos);
+            }
+
+        } catch (SQLException ex) {
+
+        }
+
+        jTable1.setModel(model);
     }
-    
-}catch(SQLException ex){
-    
-}
-
-jTable1.setModel(model);
-    }
-
 
     DefaultTableModel model = new DefaultTableModel() {
 

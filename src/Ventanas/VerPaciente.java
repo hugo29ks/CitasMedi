@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ventanas;
 
 import Clases.Conexion;
@@ -20,10 +15,6 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
 
-/**
- *
- * @author UNI
- */
 public class VerPaciente extends javax.swing.JInternalFrame {
 
     /**
@@ -198,7 +189,7 @@ public class VerPaciente extends javax.swing.JInternalFrame {
 
         int Fila = jTable1.getSelectedRow();
 
-     //   System.out.println("Fila "+Fila);
+        //   System.out.println("Fila "+Fila);
         if (Fila >= 0) {
 
             int ID = Integer.parseInt(model.getValueAt(Fila, 0).toString());
@@ -280,7 +271,7 @@ public class VerPaciente extends javax.swing.JInternalFrame {
         int Fila = jTable1.getSelectedRow();
         int Col = 10;
 
-     //   System.out.println("Fila "+Fila);
+        //   System.out.println("Fila "+Fila);
         if (Fila >= 0) {
 
             int ID = Integer.parseInt(model.getValueAt(Fila, 0).toString());
@@ -306,12 +297,11 @@ public class VerPaciente extends javax.swing.JInternalFrame {
         ActDes();   // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    
-    public void Buscar(){
-    
-      String Buscar = txtBuscar.getText();
-           
-         model.setRowCount(0);
+    public void Buscar() {
+
+        String Buscar = txtBuscar.getText();
+
+        model.setRowCount(0);
 
         String[] Header = {"No.", "Nombres", "Apellidos", "Telefono", "Género",
             "Cédula", "Correo", "Estado"};
@@ -321,8 +311,8 @@ public class VerPaciente extends javax.swing.JInternalFrame {
 
         try {
 
-            resultado = Conexion.consulta("Select * from Paciente where Nombres like '%"+Buscar+"%' "
-                    + "or Apellidos like '%"+Buscar+"%'");
+            resultado = Conexion.consulta("Select * from Paciente where Nombres like '%" + Buscar + "%' "
+                    + "or Apellidos like '%" + Buscar + "%'");
 
             while (resultado.next()) {
                 Datos[0] = String.valueOf(resultado.getInt(1));
@@ -349,19 +339,19 @@ public class VerPaciente extends javax.swing.JInternalFrame {
         }
 
         jTable1.setModel(model);
-      
-}
-    
-    
+
+    }
+
+
     private void txtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyReleased
-Buscar();        // TODO add your handling code here:
+        Buscar();        // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscarKeyReleased
 
     public void VerExpediente() {
 
         int Fila = jTable1.getSelectedRow();
 
-     //   System.out.println("Fila "+Fila);
+        //   System.out.println("Fila "+Fila);
         if (Fila >= 0) {
 
             int ID = Integer.parseInt(model.getValueAt(Fila, 0).toString());

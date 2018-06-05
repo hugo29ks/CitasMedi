@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ventanas;
 
 import Clases.Cita;
@@ -15,10 +10,6 @@ import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author UNI
- */
 public class VerCita extends javax.swing.JInternalFrame {
 
     /**
@@ -242,12 +233,12 @@ public class VerCita extends javax.swing.JInternalFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_formInternalFrameOpened
 
-    public void Buscar(){
-        
-         String Buscar = txtBuscar.getText();
-         
-             model.setRowCount(0);
-             
+    public void Buscar() {
+
+        String Buscar = txtBuscar.getText();
+
+        model.setRowCount(0);
+
         String[] Header = {"No.", "Medico", "Fecha", "Dia", "Hora", "Paciente", "Estado"};
         model.setColumnIdentifiers(Header);
 
@@ -255,21 +246,19 @@ public class VerCita extends javax.swing.JInternalFrame {
 
         try {
 
-            if(cmbBusc.getSelectedIndex()==0){
-            resultado = Conexion.consulta("Select ID_Cita,Nombres_Med,Apellidos_Med,"
-                    + "Fecha_Cita,Dia_Cita,Hora_Cita,Nombres,Apellidos,Estado from CitaV "
-                    + "where Nombres like '%"+Buscar+"%' "
-                    + "or Apellidos like '%"+Buscar+"%'");
+            if (cmbBusc.getSelectedIndex() == 0) {
+                resultado = Conexion.consulta("Select ID_Cita,Nombres_Med,Apellidos_Med,"
+                        + "Fecha_Cita,Dia_Cita,Hora_Cita,Nombres,Apellidos,Estado from CitaV "
+                        + "where Nombres like '%" + Buscar + "%' "
+                        + "or Apellidos like '%" + Buscar + "%'");
             }
-            
-            
-            if(cmbBusc.getSelectedIndex()==1){
-            resultado = Conexion.consulta("Select ID_Cita,Nombres_Med,Apellidos_Med,"
-                    + "Fecha_Cita,Dia_Cita,Hora_Cita,Nombres,Apellidos,Estado from CitaV "
-                    + "where Nombres_Med like '%"+Buscar+"%' "
-                    + "or Apellidos_Med like '%"+Buscar+"%'");
+
+            if (cmbBusc.getSelectedIndex() == 1) {
+                resultado = Conexion.consulta("Select ID_Cita,Nombres_Med,Apellidos_Med,"
+                        + "Fecha_Cita,Dia_Cita,Hora_Cita,Nombres,Apellidos,Estado from CitaV "
+                        + "where Nombres_Med like '%" + Buscar + "%' "
+                        + "or Apellidos_Med like '%" + Buscar + "%'");
             }
-            
 
             while (resultado.next()) {
                 Datos[0] = String.valueOf(resultado.getInt(1));
@@ -292,12 +281,11 @@ public class VerCita extends javax.swing.JInternalFrame {
         }
 
         jTable1.setModel(model);
-         
-         
+
     }
-    
+
     private void txtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyReleased
-Buscar();        // TODO add your handling code here:
+        Buscar();        // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscarKeyReleased
 
     DefaultTableModel model = new DefaultTableModel() {

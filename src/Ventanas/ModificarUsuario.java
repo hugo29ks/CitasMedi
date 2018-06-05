@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ventanas;
 
 import Clases.Conexion;
@@ -11,10 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author UNI
- */
 public class ModificarUsuario extends javax.swing.JDialog {
 
     /**
@@ -111,7 +102,7 @@ public class ModificarUsuario extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-     public void CargarDatos(int ID) {
+    public void CargarDatos(int ID) {
         String User = "";
         String Pass = "";
         String Tipo = "";
@@ -133,22 +124,20 @@ public class ModificarUsuario extends javax.swing.JDialog {
 
         txtUser.setText(User);
         txtPass.setText(Pass);
-      
-        
-        if("Medico".equalsIgnoreCase(Tipo)){
+
+        if ("Medico".equalsIgnoreCase(Tipo)) {
             cmbTipo.addItem("Medico");
             cmbTipo.setEnabled(false);
         }
-        
-          cmbTipo.setSelectedItem(Tipo);
-          
-        if("Admin".equalsIgnoreCase(Tipo)){
+
+        cmbTipo.setSelectedItem(Tipo);
+
+        if ("Admin".equalsIgnoreCase(Tipo)) {
             cmbTipo.setSelectedItem("Administrador");
         }
-        
 
     }
-    
+
     public void Guardar() {
         String Nombre = txtUser.getText().trim();
         String Pass = txtPass.getText();
@@ -178,12 +167,11 @@ public class ModificarUsuario extends javax.swing.JDialog {
         this.VU = VU;
     }
 
-
     public void Limpiar() {
         VU.CargarDatos();
         this.dispose();
     }
-    
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Guardar();
     }//GEN-LAST:event_jButton2ActionPerformed

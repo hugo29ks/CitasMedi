@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ventanas;
 
 import Clases.Conexion;
@@ -16,10 +11,6 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
 
-/**
- *
- * @author UNI
- */
 public class SeleccionarSemana extends javax.swing.JDialog {
 
     /**
@@ -117,40 +108,36 @@ public class SeleccionarSemana extends javax.swing.JDialog {
     public void setID_M(int ID_M) {
         this.ID_M = ID_M;
     }
-    
-    
-    public void Seleccionar(){
-        
-            Date Fecha = jCalendar1.getDate();
-   
-            Calendar cal = Calendar.getInstance();
-            cal.setTimeInMillis(Fecha.getTime());
-            int Semana = cal.get(Calendar.WEEK_OF_YEAR);
-            
-        
+
+    public void Seleccionar() {
+
+        Date Fecha = jCalendar1.getDate();
+
+        Calendar cal = Calendar.getInstance();
+        cal.setTimeInMillis(Fecha.getTime());
+        int Semana = cal.get(Calendar.WEEK_OF_YEAR);
+
         Map<String, Object> parametros = new HashMap<String, Object>();
         parametros.put("Semana", Semana);
 
-        if(Opcion==1){
-        parametros.put("ID_M", ID_M);  
+        if (Opcion == 1) {
+            parametros.put("ID_M", ID_M);
         }
 
-          
-        File miDir = new File ("");
+        File miDir = new File("");
         String reporte;
-        
-        if(Opcion==1){
-        reporte = miDir.getAbsolutePath()+"/src/Reportes/HorarioPorMedicoSemanal.jasper";
-        }else{
-        reporte = miDir.getAbsolutePath()+"/src/Reportes/HorarioSemanalGeneral.jasper";
+
+        if (Opcion == 1) {
+            reporte = miDir.getAbsolutePath() + "/src/Reportes/HorarioPorMedicoSemanal.jasper";
+        } else {
+            reporte = miDir.getAbsolutePath() + "/src/Reportes/HorarioSemanalGeneral.jasper";
         }
-        
+
         JasperPrint jp = null;
         try {
             jp = JasperFillManager.fillReport(reporte, parametros, Conexion.con);
         } catch (JRException ex) {
 
-            //   Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         JasperViewer view = new JasperViewer(jp, false);
@@ -163,7 +150,7 @@ public class SeleccionarSemana extends javax.swing.JDialog {
         view.toFront();
         this.dispose();
     }
-    
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Seleccionar();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -176,8 +163,7 @@ public class SeleccionarSemana extends javax.swing.JDialog {
         Date hoy = new Date();
         jCalendar1.setMinSelectableDate(hoy);
         jCalendar1.setDate(hoy);
-       
-        
+
 // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
 

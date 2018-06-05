@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ventanas;
 
 import Clases.Conexion;
@@ -17,16 +12,12 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-/**
- *
- * @author UNI
- */
 public class ModificarPaciente extends javax.swing.JDialog {
 
     /**
      * Creates new form AgregarDoctor
      */
-    public ModificarPaciente (java.awt.Frame parent, boolean modal) {
+    public ModificarPaciente(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
@@ -227,21 +218,20 @@ public class ModificarPaciente extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     int IDD;
-    
-    public void CargarDatos(int ID){
+
+    public void CargarDatos(int ID) {
         String Nombre = "";
         String Apellido = "";
         String Cedula = "";
         String Correo = "";
         String Genero = "";
         String Telefono = "";
-        
-        
-        try{
-            
-            resultado = Conexion.consulta("Select * from Paciente where ID_Paciente = "+ID);
-            
-            while(resultado.next()){
+
+        try {
+
+            resultado = Conexion.consulta("Select * from Paciente where ID_Paciente = " + ID);
+
+            while (resultado.next()) {
                 IDD = resultado.getInt(1);
                 Nombre = resultado.getString(2);
                 Apellido = resultado.getString(3);
@@ -249,150 +239,93 @@ public class ModificarPaciente extends javax.swing.JDialog {
                 Genero = resultado.getString(5);
                 Cedula = resultado.getString(7);
                 Correo = resultado.getString(8);
-                
-                
-                
+
             }
-                    
-            
-        }catch(SQLException ex){}
-        
-      
+
+        } catch (SQLException ex) {
+        }
+
         txtApellido.setText(Apellido);
         txtNombre.setText(Nombre);
         txtCorreo.setText(Correo);
         txtTelefono.setText(Telefono);
         txtCedula.setText(Cedula);
         cmbGenero.setSelectedItem(Genero);
-        
+
     }
-    
-    
-    public void Guardar(){
+
+    public void Guardar() {
         String Nombre = txtNombre.getText().trim();
         String Apellido = txtApellido.getText().trim();
         String Cedula = txtCedula.getText().trim();
         String Correo = txtCorreo.getText().trim();
         String Genero = (String) cmbGenero.getSelectedItem();
         String Telefono = txtTelefono.getText().trim();
-        
-        if("".equals(Nombre)||"".equals(Apellido)||"<Seleccione>".equals(Genero)||
-                "".equals(Cedula)||"".equals(Correo)){
-                    JOptionPane.showMessageDialog
-        (this, "Complete todos los campos y seleccione correctamente",
-                "Complete",JOptionPane.ERROR_MESSAGE);
+
+        if ("".equals(Nombre) || "".equals(Apellido) || "<Seleccione>".equals(Genero)
+                || "".equals(Cedula) || "".equals(Correo)) {
+            JOptionPane.showMessageDialog(this, "Complete todos los campos y seleccione correctamente",
+                    "Complete", JOptionPane.ERROR_MESSAGE);
         }
-        if(verificarCedula(Cedula)==false){
-         JOptionPane.showMessageDialog
-        (this, "La cedula ingresada no es valida",
-                "Corrija",JOptionPane.ERROR_MESSAGE);
+        if (verificarCedula(Cedula) == false) {
+            JOptionPane.showMessageDialog(this, "La cedula ingresada no es valida",
+                    "Corrija", JOptionPane.ERROR_MESSAGE);
         }
-          if(validarEmailFuerte(Correo)==false){
-         JOptionPane.showMessageDialog
-        (this, "El correo no cumple con la estructura correcta Ej:graciela.moreno@epn.edu.ec",
-                "Corrija",JOptionPane.ERROR_MESSAGE);
-        }
-        else{
+        if (validarEmailFuerte(Correo) == false) {
+            JOptionPane.showMessageDialog(this, "El correo no cumple con la estructura correcta Ej:graciela.moreno@epn.edu.ec",
+                    "Corrija", JOptionPane.ERROR_MESSAGE);
+        } else {
             Paciente.Actualizar_Paciente(IDD, Nombre, Apellido, Telefono, Genero, Cedula, Correo);
             Limpiar();// TODO add your handling code here:
 
-            }
-        
+        }
+
     }
-    
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-Guardar(); 
+        Guardar();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     ResultSet resultado;
-    int ID_Esp [];
-    
-    public void Limpiar(){
-     VP.CargarDatos();
-     this.dispose();
-        
+    int ID_Esp[];
+
+    public void Limpiar() {
+        VP.CargarDatos();
+        this.dispose();
+
     }
-    
-    
+
     private VerPaciente VP;
 
     public void setVP(VerPaciente VP) {
         this.VP = VP;
     }
-    
+
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-Limpiar();        // TODO add your handling code here:
+        Limpiar();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
-char a = evt.getKeyChar();
+        char a = evt.getKeyChar();
 
-if(!Character.isLetter(a)&&!Character.isISOControl(a)&&a!=' '){
-    evt.consume();
-    Toolkit.getDefaultToolkit().beep();
-}        // TODO add your handling code here:
+        if (!Character.isLetter(a) && !Character.isISOControl(a) && a != ' ') {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreKeyTyped
 
-    
-   /*   public void ValidarDinero(java.awt.event.KeyEvent evt, JTextField txtPrecio) {
-        
-        char a = evt.getKeyChar();
-        
-        if (!Character.isDigit(a) && !Character.isISOControl(a) && a != '.') {
-            Toolkit.getDefaultToolkit().beep();
-            evt.consume();
-            return;
-        }
-        
-        if ("0".equals(txtPrecio.getText()) && txtPrecio.getCaretPosition() == 1 && a != '.' && !Character.isISOControl(a)) {
-            txtPrecio.setText(txtPrecio.getText() + ".");
-//        return;
-        }
-        
-        if (a == '.' && txtPrecio.getText().contains(".")) {
-            Toolkit.getDefaultToolkit().beep();
-            evt.consume();
-            return;
-        }
-        
-        String x1 = "";
-        if (Character.isDigit(a) || (Character.isISOControl(a) && !"".equals(txtPrecio.getText()))) {
-            x1 = txtPrecio.getText();
-        }
-        if (Character.isDigit(a) || (a == '.')) {
-            x1 = txtPrecio.getText().concat(String.valueOf(a));
-        }
-        
-        if (!"".equals(x1)) {
-            
-            try {
-                
-                Double x = Double.parseDouble(x1);
-                
-                if (x > Double.MAX_VALUE) {
-                    Toolkit.getDefaultToolkit().beep();
-                    evt.consume();
-                }
-                
-            } catch (NumberFormatException ex) {
-                Toolkit.getDefaultToolkit().beep();
-                evt.consume();
-            }
-        }
-        
-    }*/
-    
-    private void txtApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoKeyTyped
-char a = evt.getKeyChar();
 
-if(!Character.isLetter(a)&&!Character.isISOControl(a)&&a!=' '){
-    evt.consume();
-    Toolkit.getDefaultToolkit().beep();
-}        // TODO add your handling code here:
+    private void txtApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoKeyTyped
+        char a = evt.getKeyChar();
+
+        if (!Character.isLetter(a) && !Character.isISOControl(a) && a != ' ') {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidoKeyTyped
 
     private void txtCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaKeyTyped
- 
+
     }//GEN-LAST:event_txtCedulaKeyTyped
 
     private void txtCorreoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoKeyTyped
@@ -403,38 +336,11 @@ if(!Character.isLetter(a)&&!Character.isISOControl(a)&&a!=' '){
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelefonoActionPerformed
 
-    
-    
-
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VerDetallePago.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VerDetallePago.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VerDetallePago.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VerDetallePago.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 ModificarPaciente dialog = new ModificarPaciente(new javax.swing.JFrame(), true);
@@ -449,7 +355,7 @@ if(!Character.isLetter(a)&&!Character.isISOControl(a)&&a!=' '){
         });
     }
 
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cmbGenero;
     private javax.swing.JButton jButton2;

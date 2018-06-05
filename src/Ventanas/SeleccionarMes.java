@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ventanas;
 
 import Clases.Conexion;
@@ -16,10 +11,6 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
 
-/**
- *
- * @author UNI
- */
 public class SeleccionarMes extends javax.swing.JDialog {
 
     /**
@@ -122,33 +113,28 @@ public class SeleccionarMes extends javax.swing.JDialog {
     public void setID_M(int ID_M) {
         this.ID_M = ID_M;
     }
-    
-    
-    
-    public void Seleccionar(){
-     
-            int Mes = jMonthChooser1.getMonth()+1;
-            int Anio = jYearChooser1.getYear();
-   
-        
+
+    public void Seleccionar() {
+
+        int Mes = jMonthChooser1.getMonth() + 1;
+        int Anio = jYearChooser1.getYear();
+
         Map<String, Object> parametros = new HashMap<String, Object>();
         parametros.put("Mes", Mes);
         parametros.put("Anio", Anio);
-        
-        if(Opcion==1){
-        parametros.put("ID_M", ID_M);  
+
+        if (Opcion == 1) {
+            parametros.put("ID_M", ID_M);
         }
 
-          
-        File miDir = new File ("");
-        
+        File miDir = new File("");
+
         String reporte;
-        
-        if(Opcion==1){
-        reporte = miDir.getAbsolutePath()+"/src/Reportes/HorarioPorMedicoMensual.jasper";
-        }
-        else{
-        reporte = miDir.getAbsolutePath()+"/src/Reportes/HorarioMensualGeneral.jasper";
+
+        if (Opcion == 1) {
+            reporte = miDir.getAbsolutePath() + "/src/Reportes/HorarioPorMedicoMensual.jasper";
+        } else {
+            reporte = miDir.getAbsolutePath() + "/src/Reportes/HorarioMensualGeneral.jasper";
         }
 
         JasperPrint jp = null;
@@ -169,7 +155,7 @@ public class SeleccionarMes extends javax.swing.JDialog {
         view.toFront();
         this.dispose();
     }
-    
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Seleccionar();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -181,9 +167,7 @@ public class SeleccionarMes extends javax.swing.JDialog {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         Date hoy = new Date();
         jYearChooser1.setMaximum(hoy.getYear());
-        
-       
-        
+
 // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
 

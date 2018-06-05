@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ventanas;
 
 import Clases.Cita;
@@ -28,10 +23,6 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
 
-/**
- *
- * @author UNI
- */
 public class AgregarDiagnostico extends javax.swing.JDialog {
 
     /**
@@ -270,18 +261,17 @@ public class AgregarDiagnostico extends javax.swing.JDialog {
 
         Consulta.Agregar_Consulta(ID_Cita, ConsultaF, Diagnostico, Receta);
         Cita.Cita_Atendida(ID_Cita);
-        
+
         AC.dispose();
-        
+
         this.setVisible(false);
-        
-          Map<String, Object> parametros = new HashMap<String, Object>();
+
+        Map<String, Object> parametros = new HashMap<String, Object>();
         parametros.put("ID_C", ID_Cita);
 
-          
-        File miDir = new File ("");
-        
-        String reporte = miDir.getAbsolutePath()+"/src/Reportes/Receta.jasper";
+        File miDir = new File("");
+
+        String reporte = miDir.getAbsolutePath() + "/src/Reportes/Receta.jasper";
 
         JasperPrint jp = null;
         try {
@@ -292,18 +282,16 @@ public class AgregarDiagnostico extends javax.swing.JDialog {
         }
 
         JasperViewer view = new JasperViewer(jp, false);
-        view.setTitle("Receta - "+Paciente.trim());
+        view.setTitle("Receta - " + Paciente.trim());
 
         view.setZoomRatio((float) 0.95);
         view.setVisible(true);
 
         view.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
         view.toFront();
-        
-        
-        
+
         CopiarArchivos();
-        
+
         this.dispose();
 
     }
@@ -318,7 +306,7 @@ public class AgregarDiagnostico extends javax.swing.JDialog {
     int returnVal = 1;
     File[] files;
 
-      public void CopiarArchivos() {
+    public void CopiarArchivos() {
 
         if (returnVal == JFileChooser.APPROVE_OPTION) {
 
@@ -356,10 +344,9 @@ public class AgregarDiagnostico extends javax.swing.JDialog {
                 Path TO = Paths.get(ruta_archivo_destino);
                 Path FROM = Paths.get(file.getAbsolutePath());
 
-                //   File target = new File("/"+file.getName());
                 try {
                     Files.copy(FROM, TO, options);
-                    // Files.copy(Paths.get(System.getProperty("user.dir"),ruta_carpeta), file.toPath());
+
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(this, "Archivos No guardados en el expediente " + Paciente.trim() + ""
                             + "en la carpeta Cita_" + ID_Cita + "_Fecha_" + Fecha,
@@ -392,17 +379,17 @@ public class AgregarDiagnostico extends javax.swing.JDialog {
     }
 
     private void txtConsultaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtConsultaKeyTyped
-if(evt.getKeyChar() == KeyEvent.VK_TAB){
-  txtDiagnostico.requestFocus();
-}
-        
+        if (evt.getKeyChar() == KeyEvent.VK_TAB) {
+            txtDiagnostico.requestFocus();
+        }
+
 // TODO add your handling code here:
     }//GEN-LAST:event_txtConsultaKeyTyped
 
     private void txtDiagnosticoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDiagnosticoKeyTyped
-if(evt.getKeyChar() == KeyEvent.VK_TAB){
-  txtReceta.requestFocus();
-}        // TODO add your handling code here:
+        if (evt.getKeyChar() == KeyEvent.VK_TAB) {
+            txtReceta.requestFocus();
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_txtDiagnosticoKeyTyped
 
     /**

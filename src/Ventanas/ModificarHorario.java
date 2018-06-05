@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ventanas;
 
 import Clases.Conexion;
@@ -16,10 +11,6 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author UNI
- */
 public class ModificarHorario extends javax.swing.JDialog {
 
     /**
@@ -662,11 +653,11 @@ public class ModificarHorario extends javax.swing.JDialog {
             int HRi = cmbDesde.getSelectedIndex();
             int HRs = cmbHasta.getSelectedIndex();
 
-            if(HRi==0 || HRs==0){
-               JOptionPane.showMessageDialog(this, "Seleccione la hora correctamente","Seleccione",JOptionPane.ERROR_MESSAGE);
-           return;
+            if (HRi == 0 || HRs == 0) {
+                JOptionPane.showMessageDialog(this, "Seleccione la hora correctamente", "Seleccione", JOptionPane.ERROR_MESSAGE);
+                return;
             }
-            
+
             if (HRi > HRs) {
                 JOptionPane.showMessageDialog(this, "La hora de salida el Lunes no puede ser menor que la de entrada, y la hora de entrada no puede ser mayor que"
                         + " la de salida",
@@ -678,10 +669,10 @@ public class ModificarHorario extends javax.swing.JDialog {
         if (ckM.isSelected()) {
             int HRi = cmbDesde2.getSelectedIndex();
             int HRs = cmbHasta2.getSelectedIndex();
-            
-             if(HRi==0 || HRs==0){
-               JOptionPane.showMessageDialog(this, "Seleccione la hora correctamente","Seleccione",JOptionPane.ERROR_MESSAGE);
-           return;
+
+            if (HRi == 0 || HRs == 0) {
+                JOptionPane.showMessageDialog(this, "Seleccione la hora correctamente", "Seleccione", JOptionPane.ERROR_MESSAGE);
+                return;
             }
 
             if (HRi > HRs) {
@@ -695,10 +686,10 @@ public class ModificarHorario extends javax.swing.JDialog {
         if (ckX.isSelected()) {
             int HRi = cmbDesde3.getSelectedIndex();
             int HRs = cmbHasta3.getSelectedIndex();
-            
-             if(HRi==0 || HRs==0){
-               JOptionPane.showMessageDialog(this, "Seleccione la hora correctamente","Seleccione",JOptionPane.ERROR_MESSAGE);
-           return;
+
+            if (HRi == 0 || HRs == 0) {
+                JOptionPane.showMessageDialog(this, "Seleccione la hora correctamente", "Seleccione", JOptionPane.ERROR_MESSAGE);
+                return;
             }
 
             if (HRi > HRs) {
@@ -712,10 +703,10 @@ public class ModificarHorario extends javax.swing.JDialog {
         if (ckJ.isSelected()) {
             int HRi = cmbDesde4.getSelectedIndex();
             int HRs = cmbHasta4.getSelectedIndex();
-            
-             if(HRi==0 || HRs==0){
-               JOptionPane.showMessageDialog(this, "Seleccione la hora correctamente","Seleccione",JOptionPane.ERROR_MESSAGE);
-           return;
+
+            if (HRi == 0 || HRs == 0) {
+                JOptionPane.showMessageDialog(this, "Seleccione la hora correctamente", "Seleccione", JOptionPane.ERROR_MESSAGE);
+                return;
             }
 
             if (HRi > HRs) {
@@ -729,10 +720,10 @@ public class ModificarHorario extends javax.swing.JDialog {
         if (ckV.isSelected()) {
             int HRi = cmbDesde5.getSelectedIndex();
             int HRs = cmbHasta5.getSelectedIndex();
-            
-             if(HRi==0 || HRs==0){
-               JOptionPane.showMessageDialog(this, "Seleccione la hora correctamente","Seleccione",JOptionPane.ERROR_MESSAGE);
-           return;
+
+            if (HRi == 0 || HRs == 0) {
+                JOptionPane.showMessageDialog(this, "Seleccione la hora correctamente", "Seleccione", JOptionPane.ERROR_MESSAGE);
+                return;
             }
 
             if (HRi > HRs) {
@@ -746,10 +737,10 @@ public class ModificarHorario extends javax.swing.JDialog {
         if (ckS.isSelected()) {
             int HRi = cmbDesde6.getSelectedIndex();
             int HRs = cmbHasta6.getSelectedIndex();
-            
-             if(HRi==0 || HRs==0){
-               JOptionPane.showMessageDialog(this, "Seleccione la hora correctamente","Seleccione",JOptionPane.ERROR_MESSAGE);
-           return;
+
+            if (HRi == 0 || HRs == 0) {
+                JOptionPane.showMessageDialog(this, "Seleccione la hora correctamente", "Seleccione", JOptionPane.ERROR_MESSAGE);
+                return;
             }
 
             if (HRi > HRs) {
@@ -763,10 +754,10 @@ public class ModificarHorario extends javax.swing.JDialog {
         if (ckD.isSelected()) {
             int HRi = cmbDesde9.getSelectedIndex();
             int HRs = cmbHasta9.getSelectedIndex();
-            
-             if(HRi==0 || HRs==0){
-               JOptionPane.showMessageDialog(this, "Seleccione la hora correctamente","Seleccione",JOptionPane.ERROR_MESSAGE);
-           return;
+
+            if (HRi == 0 || HRs == 0) {
+                JOptionPane.showMessageDialog(this, "Seleccione la hora correctamente", "Seleccione", JOptionPane.ERROR_MESSAGE);
+                return;
             }
 
             if (HRi > HRs) {
@@ -778,7 +769,7 @@ public class ModificarHorario extends javax.swing.JDialog {
         }
 
         int ID_MaxM = ID;
-        
+
         VaciarHorario(ID_MaxM);
         AgregarHorario(ID_MaxM);
 
@@ -790,64 +781,58 @@ public class ModificarHorario extends javax.swing.JDialog {
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    public void VaciarHorario(int ID_Medico){
-         
+    public void VaciarHorario(int ID_Medico) {
+
         ArrayList<String> ID_Hora = new ArrayList<>();
-        
-        
-        
-        try{
-            
-            resultado = Conexion.consulta("Select ID_Hora_Medico from HorarioV Where ID_Medico = "+ID_Medico);
-            
-            while(resultado.next()){
-                
-                ID_Hora.add(String.valueOf(resultado.getInt(1)));
-                
-            }
-            
-            
-        }catch(SQLException ex){}
-        
-        
-        for (String ID_Hora1 : ID_Hora) {
-            
-            int ID_H = Integer.valueOf(ID_Hora1);
-            
-            try {
 
-        CallableStatement consulta = Conexion.con.prepareCall("{call EliminarHora(?) }");
-
-                        consulta.setInt(1,ID_H);
-                        consulta.execute();
-
-       //  JOptionPane.showMessageDialog(null,"Hora Eliminada","Información",JOptionPane.INFORMATION_MESSAGE);
-
-        } catch (SQLException ex) {
-
-        JOptionPane.showMessageDialog(null,ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
-
-        }
-            
-        }
-        
-        
         try {
 
-        CallableStatement consulta = Conexion.con.prepareCall("{call EliminarDia(?) }");
+            resultado = Conexion.consulta("Select ID_Hora_Medico from HorarioV Where ID_Medico = " + ID_Medico);
 
-                        consulta.setInt(1,ID_Medico);
-                        consulta.execute();
+            while (resultado.next()) {
 
-     //    JOptionPane.showMessageDialog(null,"Dia Eliminado","Información",JOptionPane.INFORMATION_MESSAGE);
+                ID_Hora.add(String.valueOf(resultado.getInt(1)));
+
+            }
 
         } catch (SQLException ex) {
+        }
 
-        JOptionPane.showMessageDialog(null,ex.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
+        for (String ID_Hora1 : ID_Hora) {
+
+            int ID_H = Integer.valueOf(ID_Hora1);
+
+            try {
+
+                CallableStatement consulta = Conexion.con.prepareCall("{call EliminarHora(?) }");
+
+                consulta.setInt(1, ID_H);
+                consulta.execute();
+
+                //  JOptionPane.showMessageDialog(null,"Hora Eliminada","Información",JOptionPane.INFORMATION_MESSAGE);
+            } catch (SQLException ex) {
+
+                JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+
+            }
+
+        }
+
+        try {
+
+            CallableStatement consulta = Conexion.con.prepareCall("{call EliminarDia(?) }");
+
+            consulta.setInt(1, ID_Medico);
+            consulta.execute();
+
+            //    JOptionPane.showMessageDialog(null,"Dia Eliminado","Información",JOptionPane.INFORMATION_MESSAGE);
+        } catch (SQLException ex) {
+
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 
         }
     }
-    
+
     private void ckLItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ckLItemStateChanged
         if (ckL.isSelected()) {
             PanelL.setVisible(true);

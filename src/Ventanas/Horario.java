@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ventanas;
 
 import Clases.Conexion;
@@ -14,10 +9,6 @@ import java.sql.SQLException;
 import java.util.StringTokenizer;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author UNI
- */
 public class Horario extends javax.swing.JDialog {
 
     /**
@@ -27,14 +18,14 @@ public class Horario extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setResizable(false);
-        
+
         PanelL.setVisible(false);
-        PanelM.setVisible(false); 
-        PanelX.setVisible(false); 
-        PanelJ.setVisible(false); 
-        PanelV.setVisible(false); 
-        PanelS.setVisible(false);  
-        PanelD.setVisible(false); 
+        PanelM.setVisible(false);
+        PanelX.setVisible(false);
+        PanelJ.setVisible(false);
+        PanelV.setVisible(false);
+        PanelS.setVisible(false);
+        PanelD.setVisible(false);
     }
 
     /**
@@ -571,16 +562,16 @@ public class Horario extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     ResultSet resultado;
-    
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Guardar();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-   private String Nombre;
-   private String Apellido;
-   private String Cedula;
-   private String Correo;
-   private int ID_Especialidad;
+    private String Nombre;
+    private String Apellido;
+    private String Cedula;
+    private String Correo;
+    private int ID_Especialidad;
 
     public void setNombre(String Nombre) {
         this.Nombre = Nombre;
@@ -589,458 +580,444 @@ public class Horario extends javax.swing.JDialog {
     public void setApellido(String Apellido) {
         this.Apellido = Apellido;
     }
-    
-     public void setCedula(String Cedula) {
+
+    public void setCedula(String Cedula) {
         this.Cedula = Cedula;
     }
-     
-     public void setCorreo(String Correo) {
+
+    public void setCorreo(String Correo) {
         this.Correo = Correo;
     }
 
     public void setID_Especialidad(int ID_Especialidad) {
         this.ID_Especialidad = ID_Especialidad;
     }
-   
-   
+
     AgregarMedico AM;
 
     public void setAM(AgregarMedico AM) {
         this.AM = AM;
     }
-    
-    
-    
-    public void Guardar(){
-        if(ckL.isSelected()){
-        int HRi = cmbDesde.getSelectedIndex();
-        int HRs = cmbHasta.getSelectedIndex();
-        
-         if(HRi==0 || HRs==0){
-               JOptionPane.showMessageDialog(this, "Seleccione la hora correctamente","Seleccione",JOptionPane.ERROR_MESSAGE);
-           return;
+
+    public void Guardar() {
+        if (ckL.isSelected()) {
+            int HRi = cmbDesde.getSelectedIndex();
+            int HRs = cmbHasta.getSelectedIndex();
+
+            if (HRi == 0 || HRs == 0) {
+                JOptionPane.showMessageDialog(this, "Seleccione la hora correctamente", "Seleccione", JOptionPane.ERROR_MESSAGE);
+                return;
             }
-        
-        if(HRi>HRs){
-                    JOptionPane.showMessageDialog
-        (this, "La hora de salida el Lunes no puede ser menor que la de entrada, y la hora de entrada no puede ser mayor que"
-                + " la de salida",
-                "Seleccione correctamente",JOptionPane.ERROR_MESSAGE);
-                    return;
-        }
-        }
-        
-         if(ckM.isSelected()){
-        int HRi = cmbDesde2.getSelectedIndex();
-        int HRs = cmbHasta2.getSelectedIndex();
-        
-         if(HRi==0 || HRs==0){
-               JOptionPane.showMessageDialog(this, "Seleccione la hora correctamente","Seleccione",JOptionPane.ERROR_MESSAGE);
-           return;
+
+            if (HRi > HRs) {
+                JOptionPane.showMessageDialog(this, "La hora de salida el Lunes no puede ser menor que la de entrada, y la hora de entrada no puede ser mayor que"
+                        + " la de salida",
+                        "Seleccione correctamente", JOptionPane.ERROR_MESSAGE);
+                return;
             }
-        
-        if(HRi>HRs){
-                    JOptionPane.showMessageDialog
-        (this, "La hora de salida el Martes no puede ser menor que la de entrada, y la hora de entrada no puede ser mayor que"
-                + " la de salida",
-                "Seleccione correctamente",JOptionPane.ERROR_MESSAGE);
-                    return;
         }
-        }
-         
-          if(ckX.isSelected()){
-        int HRi = cmbDesde3.getSelectedIndex();
-        int HRs = cmbHasta3.getSelectedIndex();
-        
-         if(HRi==0 || HRs==0){
-               JOptionPane.showMessageDialog(this, "Seleccione la hora correctamente","Seleccione",JOptionPane.ERROR_MESSAGE);
-           return;
+
+        if (ckM.isSelected()) {
+            int HRi = cmbDesde2.getSelectedIndex();
+            int HRs = cmbHasta2.getSelectedIndex();
+
+            if (HRi == 0 || HRs == 0) {
+                JOptionPane.showMessageDialog(this, "Seleccione la hora correctamente", "Seleccione", JOptionPane.ERROR_MESSAGE);
+                return;
             }
-        
-        if(HRi>HRs){
-                    JOptionPane.showMessageDialog
-        (this, "La hora de salida el Miercoles no puede ser menor que la de entrada, y la hora de entrada no puede ser mayor que"
-                + " la de salida",
-                "Seleccione correctamente",JOptionPane.ERROR_MESSAGE);
-                    return;
-        }
-        }
-          
-            if(ckJ.isSelected()){
-        int HRi = cmbDesde4.getSelectedIndex();
-        int HRs = cmbHasta4.getSelectedIndex();
-        
-         if(HRi==0 || HRs==0){
-               JOptionPane.showMessageDialog(this, "Seleccione la hora correctamente","Seleccione",JOptionPane.ERROR_MESSAGE);
-           return;
+
+            if (HRi > HRs) {
+                JOptionPane.showMessageDialog(this, "La hora de salida el Martes no puede ser menor que la de entrada, y la hora de entrada no puede ser mayor que"
+                        + " la de salida",
+                        "Seleccione correctamente", JOptionPane.ERROR_MESSAGE);
+                return;
             }
-        
-        if(HRi>HRs){
-                    JOptionPane.showMessageDialog
-        (this, "La hora de salida el Jueves no puede ser menor que la de entrada, y la hora de entrada no puede ser mayor que"
-                + " la de salida",
-                "Seleccione correctamente",JOptionPane.ERROR_MESSAGE);
-                    return;
         }
-        }
-            
-              if(ckV.isSelected()){
-        int HRi = cmbDesde5.getSelectedIndex();
-        int HRs = cmbHasta5.getSelectedIndex();
-        
-         if(HRi==0 || HRs==0){
-               JOptionPane.showMessageDialog(this, "Seleccione la hora correctamente","Seleccione",JOptionPane.ERROR_MESSAGE);
-           return;
+
+        if (ckX.isSelected()) {
+            int HRi = cmbDesde3.getSelectedIndex();
+            int HRs = cmbHasta3.getSelectedIndex();
+
+            if (HRi == 0 || HRs == 0) {
+                JOptionPane.showMessageDialog(this, "Seleccione la hora correctamente", "Seleccione", JOptionPane.ERROR_MESSAGE);
+                return;
             }
-        
-        if(HRi>HRs){
-                    JOptionPane.showMessageDialog
-        (this, "La hora de salida el Viernes no puede ser menor que la de entrada, y la hora de entrada no puede ser mayor que"
-                + " la de salida",
-                "Seleccione correctamente",JOptionPane.ERROR_MESSAGE);
-                    return;
-        }
-        }
-              
-                if(ckS.isSelected()){
-        int HRi = cmbDesde6.getSelectedIndex();
-        int HRs = cmbHasta6.getSelectedIndex();
-        
-         if(HRi==0 || HRs==0){
-               JOptionPane.showMessageDialog(this, "Seleccione la hora correctamente","Seleccione",JOptionPane.ERROR_MESSAGE);
-           return;
+
+            if (HRi > HRs) {
+                JOptionPane.showMessageDialog(this, "La hora de salida el Miercoles no puede ser menor que la de entrada, y la hora de entrada no puede ser mayor que"
+                        + " la de salida",
+                        "Seleccione correctamente", JOptionPane.ERROR_MESSAGE);
+                return;
             }
-        
-        if(HRi>HRs){
-                    JOptionPane.showMessageDialog
-        (this, "La hora de salida el Sabado no puede ser menor que la de entrada, y la hora de entrada no puede ser mayor que"
-                + " la de salida",
-                "Seleccione correctamente",JOptionPane.ERROR_MESSAGE);
-                    return;
         }
-        }
-                
-                  if(ckD.isSelected()){
-        int HRi = cmbDesde9.getSelectedIndex();
-        int HRs = cmbHasta9.getSelectedIndex();
-        
-         if(HRi==0 || HRs==0){
-               JOptionPane.showMessageDialog(this, "Seleccione la hora correctamente","Seleccione",JOptionPane.ERROR_MESSAGE);
-           return;
+
+        if (ckJ.isSelected()) {
+            int HRi = cmbDesde4.getSelectedIndex();
+            int HRs = cmbHasta4.getSelectedIndex();
+
+            if (HRi == 0 || HRs == 0) {
+                JOptionPane.showMessageDialog(this, "Seleccione la hora correctamente", "Seleccione", JOptionPane.ERROR_MESSAGE);
+                return;
             }
-        
-        if(HRi>HRs){
-                    JOptionPane.showMessageDialog
-        (this, "La hora de salida el Domingo no puede ser menor que la de entrada, y la hora de entrada no puede ser mayor que"
-                + " la de salida",
-                "Seleccione correctamente",JOptionPane.ERROR_MESSAGE);
-                    return;
+
+            if (HRi > HRs) {
+                JOptionPane.showMessageDialog(this, "La hora de salida el Jueves no puede ser menor que la de entrada, y la hora de entrada no puede ser mayor que"
+                        + " la de salida",
+                        "Seleccione correctamente", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
         }
+
+        if (ckV.isSelected()) {
+            int HRi = cmbDesde5.getSelectedIndex();
+            int HRs = cmbHasta5.getSelectedIndex();
+
+            if (HRi == 0 || HRs == 0) {
+                JOptionPane.showMessageDialog(this, "Seleccione la hora correctamente", "Seleccione", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            if (HRi > HRs) {
+                JOptionPane.showMessageDialog(this, "La hora de salida el Viernes no puede ser menor que la de entrada, y la hora de entrada no puede ser mayor que"
+                        + " la de salida",
+                        "Seleccione correctamente", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
         }
-                  
-                  
-            
-                  
+
+        if (ckS.isSelected()) {
+            int HRi = cmbDesde6.getSelectedIndex();
+            int HRs = cmbHasta6.getSelectedIndex();
+
+            if (HRi == 0 || HRs == 0) {
+                JOptionPane.showMessageDialog(this, "Seleccione la hora correctamente", "Seleccione", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            if (HRi > HRs) {
+                JOptionPane.showMessageDialog(this, "La hora de salida el Sabado no puede ser menor que la de entrada, y la hora de entrada no puede ser mayor que"
+                        + " la de salida",
+                        "Seleccione correctamente", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
+
+        if (ckD.isSelected()) {
+            int HRi = cmbDesde9.getSelectedIndex();
+            int HRs = cmbHasta9.getSelectedIndex();
+
+            if (HRi == 0 || HRs == 0) {
+                JOptionPane.showMessageDialog(this, "Seleccione la hora correctamente", "Seleccione", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            if (HRi > HRs) {
+                JOptionPane.showMessageDialog(this, "La hora de salida el Domingo no puede ser menor que la de entrada, y la hora de entrada no puede ser mayor que"
+                        + " la de salida",
+                        "Seleccione correctamente", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
+
         Medico.Agregar_Medico(Nombre, Apellido, Cedula, Correo, ID_Especialidad);
-         
-           
-            int ID_MaxU = 0;
-            int ID_MaxM = 0;
-            
-            try{
-               resultado = Conexion.consulta("Select Max(ID_Medico) from Medico");
-               
-               while(resultado.next()){
-                   ID_MaxM = resultado.getInt(1);
-               }
-                
-            }catch(SQLException ex){}
-            
-           
-            AgregarHorario(ID_MaxM);
-            
-            
-            
-            String NombreUsuario = Nombre.trim()+ID_MaxM;
-           
-              
-            StringTokenizer ST = new StringTokenizer(NombreUsuario, " ");
-            
-            String Name = "";
-            while(ST.hasMoreTokens()){
-            Name = Name.concat(ST.nextToken());
+
+        int ID_MaxU = 0;
+        int ID_MaxM = 0;
+
+        try {
+            resultado = Conexion.consulta("Select Max(ID_Medico) from Medico");
+
+            while (resultado.next()) {
+                ID_MaxM = resultado.getInt(1);
             }
-            
-            Name = Name.toLowerCase();
-            
-            AgregarUsuarioMedico AUM = new AgregarUsuarioMedico(null, true);
-            AUM.setNombreUsuario(Name);
-            AUM.setVisible(true);
-            
-             try{
-               resultado = Conexion.consulta("Select Max(ID_Usuario) from Usuario");
-               
-               while(resultado.next()){
-                   ID_MaxU = resultado.getInt(1);
-               }
-                
-            }catch(SQLException ex){}
-             
-          
-            Medico.Usuario_Medico(ID_MaxM, ID_MaxU, Name);      
-            AM.dispose();
-            this.dispose();
-                  
-            
-          
+
+        } catch (SQLException ex) {
+        }
+
+        AgregarHorario(ID_MaxM);
+
+        String NombreUsuario = Nombre.trim() + ID_MaxM;
+
+        StringTokenizer ST = new StringTokenizer(NombreUsuario, " ");
+
+        String Name = "";
+        while (ST.hasMoreTokens()) {
+            Name = Name.concat(ST.nextToken());
+        }
+
+        Name = Name.toLowerCase();
+
+        AgregarUsuarioMedico AUM = new AgregarUsuarioMedico(null, true);
+        AUM.setNombreUsuario(Name);
+        AUM.setVisible(true);
+
+        try {
+            resultado = Conexion.consulta("Select Max(ID_Usuario) from Usuario");
+
+            while (resultado.next()) {
+                ID_MaxU = resultado.getInt(1);
+            }
+
+        } catch (SQLException ex) {
+        }
+
+        Medico.Usuario_Medico(ID_MaxM, ID_MaxU, Name);
+        AM.dispose();
+        this.dispose();
+
     }
-    
+
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void ckLItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ckLItemStateChanged
-if(ckL.isSelected()){
-    PanelL.setVisible(true);
-}
-else{
-  PanelL.setVisible(false);  
-}
+        if (ckL.isSelected()) {
+            PanelL.setVisible(true);
+        } else {
+            PanelL.setVisible(false);
+        }
 
 // TODO add your handling code here:
     }//GEN-LAST:event_ckLItemStateChanged
 
     private void ckMItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ckMItemStateChanged
-if(ckM.isSelected()){
-    PanelM.setVisible(true);
-}
-else{
-  PanelM.setVisible(false);  
-}
+        if (ckM.isSelected()) {
+            PanelM.setVisible(true);
+        } else {
+            PanelM.setVisible(false);
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_ckMItemStateChanged
 
     private void ckXItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ckXItemStateChanged
-if(ckX.isSelected()){
-    PanelX.setVisible(true);
-}
-else{
-  PanelX.setVisible(false);  
-}
+        if (ckX.isSelected()) {
+            PanelX.setVisible(true);
+        } else {
+            PanelX.setVisible(false);
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_ckXItemStateChanged
 
- public void AgregarHorario(int ID_MaxM){
-        
-     
-            if(ckL.isSelected()){
-                
-               int ID_MaxD = 0;
-               
-               Dia_Medico.Agregar_Dia_Medico(ID_MaxM, "L");
-               
-                try{
-               resultado = Conexion.consulta("Select Max(ID_Dia_Medico) from Dia_Medico");
-               
-               while(resultado.next()){
-                   ID_MaxD = resultado.getInt(1);
-               }
-                
-            }catch(SQLException ex){}
-               
-              String HoraInicio = (String) cmbDesde.getSelectedItem();
-              String HoraFinal = (String) cmbHasta.getSelectedItem();
-              
-              Hora_Medico.Agregar_Hora_Medico(ID_MaxD, HoraInicio, HoraFinal);
-               
+    public void AgregarHorario(int ID_MaxM) {
+
+        if (ckL.isSelected()) {
+
+            int ID_MaxD = 0;
+
+            Dia_Medico.Agregar_Dia_Medico(ID_MaxM, "L");
+
+            try {
+                resultado = Conexion.consulta("Select Max(ID_Dia_Medico) from Dia_Medico");
+
+                while (resultado.next()) {
+                    ID_MaxD = resultado.getInt(1);
+                }
+
+            } catch (SQLException ex) {
             }
-            
-            /***************************************************************/
-            
-            if(ckM.isSelected()){
-                
-               int ID_MaxD = 0;
-               
-               Dia_Medico.Agregar_Dia_Medico(ID_MaxM, "M");
-               
-                try{
-               resultado = Conexion.consulta("Select Max(ID_Dia_Medico) from Dia_Medico");
-               
-               while(resultado.next()){
-                   ID_MaxD = resultado.getInt(1);
-               }
-                
-            }catch(SQLException ex){}
-               
-              String HoraInicio = (String) cmbDesde2.getSelectedItem();
-              String HoraFinal = (String) cmbHasta2.getSelectedItem();
-              
-              Hora_Medico.Agregar_Hora_Medico(ID_MaxD, HoraInicio, HoraFinal);
-               
+
+            String HoraInicio = (String) cmbDesde.getSelectedItem();
+            String HoraFinal = (String) cmbHasta.getSelectedItem();
+
+            Hora_Medico.Agregar_Hora_Medico(ID_MaxD, HoraInicio, HoraFinal);
+
+        }
+
+        /**
+         * ************************************************************
+         */
+        if (ckM.isSelected()) {
+
+            int ID_MaxD = 0;
+
+            Dia_Medico.Agregar_Dia_Medico(ID_MaxM, "M");
+
+            try {
+                resultado = Conexion.consulta("Select Max(ID_Dia_Medico) from Dia_Medico");
+
+                while (resultado.next()) {
+                    ID_MaxD = resultado.getInt(1);
+                }
+
+            } catch (SQLException ex) {
             }
-            
-            /***************************************************************/
-            
-            if(ckX.isSelected()){
-                
-               int ID_MaxD = 0;
-               
-               Dia_Medico.Agregar_Dia_Medico(ID_MaxM, "X");
-               
-                try{
-               resultado = Conexion.consulta("Select Max(ID_Dia_Medico) from Dia_Medico");
-               
-               while(resultado.next()){
-                   ID_MaxD = resultado.getInt(1);
-               }
-                
-            }catch(SQLException ex){}
-               
-              String HoraInicio = (String) cmbDesde3.getSelectedItem();
-              String HoraFinal = (String) cmbHasta3.getSelectedItem();
-              
-              Hora_Medico.Agregar_Hora_Medico(ID_MaxD, HoraInicio, HoraFinal);
-               
+
+            String HoraInicio = (String) cmbDesde2.getSelectedItem();
+            String HoraFinal = (String) cmbHasta2.getSelectedItem();
+
+            Hora_Medico.Agregar_Hora_Medico(ID_MaxD, HoraInicio, HoraFinal);
+
+        }
+
+        /**
+         * ************************************************************
+         */
+        if (ckX.isSelected()) {
+
+            int ID_MaxD = 0;
+
+            Dia_Medico.Agregar_Dia_Medico(ID_MaxM, "X");
+
+            try {
+                resultado = Conexion.consulta("Select Max(ID_Dia_Medico) from Dia_Medico");
+
+                while (resultado.next()) {
+                    ID_MaxD = resultado.getInt(1);
+                }
+
+            } catch (SQLException ex) {
             }
-            
-            /***************************************************************/
-            
-            if(ckJ.isSelected()){
-                
-               int ID_MaxD = 0;
-               
-               Dia_Medico.Agregar_Dia_Medico(ID_MaxM, "J");
-               
-                try{
-               resultado = Conexion.consulta("Select Max(ID_Dia_Medico) from Dia_Medico");
-               
-               while(resultado.next()){
-                   ID_MaxD = resultado.getInt(1);
-               }
-                
-            }catch(SQLException ex){}
-               
-              String HoraInicio = (String) cmbDesde4.getSelectedItem();
-              String HoraFinal = (String) cmbHasta4.getSelectedItem();
-              
-              Hora_Medico.Agregar_Hora_Medico(ID_MaxD, HoraInicio, HoraFinal);
-               
+
+            String HoraInicio = (String) cmbDesde3.getSelectedItem();
+            String HoraFinal = (String) cmbHasta3.getSelectedItem();
+
+            Hora_Medico.Agregar_Hora_Medico(ID_MaxD, HoraInicio, HoraFinal);
+
+        }
+
+        /**
+         * ************************************************************
+         */
+        if (ckJ.isSelected()) {
+
+            int ID_MaxD = 0;
+
+            Dia_Medico.Agregar_Dia_Medico(ID_MaxM, "J");
+
+            try {
+                resultado = Conexion.consulta("Select Max(ID_Dia_Medico) from Dia_Medico");
+
+                while (resultado.next()) {
+                    ID_MaxD = resultado.getInt(1);
+                }
+
+            } catch (SQLException ex) {
             }
-            
-            /***************************************************************/
-            
-            if(ckV.isSelected()){
-                
-               int ID_MaxD = 0;
-               
-               Dia_Medico.Agregar_Dia_Medico(ID_MaxM, "V");
-               
-                try{
-               resultado = Conexion.consulta("Select Max(ID_Dia_Medico) from Dia_Medico");
-               
-               while(resultado.next()){
-                   ID_MaxD = resultado.getInt(1);
-               }
-                
-            }catch(SQLException ex){}
-               
-              String HoraInicio = (String) cmbDesde5.getSelectedItem();
-              String HoraFinal = (String) cmbHasta5.getSelectedItem();
-              
-              Hora_Medico.Agregar_Hora_Medico(ID_MaxD, HoraInicio, HoraFinal);
-               
+
+            String HoraInicio = (String) cmbDesde4.getSelectedItem();
+            String HoraFinal = (String) cmbHasta4.getSelectedItem();
+
+            Hora_Medico.Agregar_Hora_Medico(ID_MaxD, HoraInicio, HoraFinal);
+
+        }
+
+        /**
+         * ************************************************************
+         */
+        if (ckV.isSelected()) {
+
+            int ID_MaxD = 0;
+
+            Dia_Medico.Agregar_Dia_Medico(ID_MaxM, "V");
+
+            try {
+                resultado = Conexion.consulta("Select Max(ID_Dia_Medico) from Dia_Medico");
+
+                while (resultado.next()) {
+                    ID_MaxD = resultado.getInt(1);
+                }
+
+            } catch (SQLException ex) {
             }
-            
-            /***************************************************************/
-            
-            if(ckS.isSelected()){
-                
-               int ID_MaxD = 0;
-               
-               Dia_Medico.Agregar_Dia_Medico(ID_MaxM, "S");
-               
-                try{
-               resultado = Conexion.consulta("Select Max(ID_Dia_Medico) from Dia_Medico");
-               
-               while(resultado.next()){
-                   ID_MaxD = resultado.getInt(1);
-               }
-                
-            }catch(SQLException ex){}
-               
-              String HoraInicio = (String) cmbDesde6.getSelectedItem();
-              String HoraFinal = (String) cmbHasta6.getSelectedItem();
-              
-              Hora_Medico.Agregar_Hora_Medico(ID_MaxD, HoraInicio, HoraFinal);
-               
+
+            String HoraInicio = (String) cmbDesde5.getSelectedItem();
+            String HoraFinal = (String) cmbHasta5.getSelectedItem();
+
+            Hora_Medico.Agregar_Hora_Medico(ID_MaxD, HoraInicio, HoraFinal);
+
+        }
+
+        /**
+         * ************************************************************
+         */
+        if (ckS.isSelected()) {
+
+            int ID_MaxD = 0;
+
+            Dia_Medico.Agregar_Dia_Medico(ID_MaxM, "S");
+
+            try {
+                resultado = Conexion.consulta("Select Max(ID_Dia_Medico) from Dia_Medico");
+
+                while (resultado.next()) {
+                    ID_MaxD = resultado.getInt(1);
+                }
+
+            } catch (SQLException ex) {
             }
-            
-            /***************************************************************/
-            
-            if(ckD.isSelected()){
-                
-               int ID_MaxD = 0;
-               
-               Dia_Medico.Agregar_Dia_Medico(ID_MaxM, "D");
-               
-                try{
-               resultado = Conexion.consulta("Select Max(ID_Dia_Medico) from Dia_Medico");
-               
-               while(resultado.next()){
-                   ID_MaxD = resultado.getInt(1);
-               }
-                
-            }catch(SQLException ex){}
-               
-              String HoraInicio = (String) cmbDesde9.getSelectedItem();
-              String HoraFinal = (String) cmbHasta9.getSelectedItem();
-              
-              Hora_Medico.Agregar_Hora_Medico(ID_MaxD, HoraInicio, HoraFinal);
-               
+
+            String HoraInicio = (String) cmbDesde6.getSelectedItem();
+            String HoraFinal = (String) cmbHasta6.getSelectedItem();
+
+            Hora_Medico.Agregar_Hora_Medico(ID_MaxD, HoraInicio, HoraFinal);
+
+        }
+
+        /**
+         * ************************************************************
+         */
+        if (ckD.isSelected()) {
+
+            int ID_MaxD = 0;
+
+            Dia_Medico.Agregar_Dia_Medico(ID_MaxM, "D");
+
+            try {
+                resultado = Conexion.consulta("Select Max(ID_Dia_Medico) from Dia_Medico");
+
+                while (resultado.next()) {
+                    ID_MaxD = resultado.getInt(1);
+                }
+
+            } catch (SQLException ex) {
             }
-            
-            /***************************************************************/
-            
-            
+
+            String HoraInicio = (String) cmbDesde9.getSelectedItem();
+            String HoraFinal = (String) cmbHasta9.getSelectedItem();
+
+            Hora_Medico.Agregar_Hora_Medico(ID_MaxD, HoraInicio, HoraFinal);
+
+        }
+
+        /**
+         * ************************************************************
+         */
     }
-   
+
     private void ckJItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ckJItemStateChanged
-if(ckJ.isSelected()){
-    PanelJ.setVisible(true);
-}
-else{
-  PanelJ.setVisible(false);  
-}
+        if (ckJ.isSelected()) {
+            PanelJ.setVisible(true);
+        } else {
+            PanelJ.setVisible(false);
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_ckJItemStateChanged
 
     private void ckVItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ckVItemStateChanged
-if(ckV.isSelected()){
-    PanelV.setVisible(true);
-}
-else{
-  PanelV.setVisible(false);  
-}
+        if (ckV.isSelected()) {
+            PanelV.setVisible(true);
+        } else {
+            PanelV.setVisible(false);
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_ckVItemStateChanged
 
     private void ckSItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ckSItemStateChanged
-if(ckS.isSelected()){
-    PanelS.setVisible(true);
-}
-else{
-  PanelS.setVisible(false);  
-}
+        if (ckS.isSelected()) {
+            PanelS.setVisible(true);
+        } else {
+            PanelS.setVisible(false);
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_ckSItemStateChanged
 
     private void ckDItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_ckDItemStateChanged
-if(ckD.isSelected()){
-    PanelD.setVisible(true);
-}
-else{
-  PanelD.setVisible(false);  
-}
+        if (ckD.isSelected()) {
+            PanelD.setVisible(true);
+        } else {
+            PanelD.setVisible(false);
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_ckDItemStateChanged
 
@@ -1143,5 +1120,4 @@ else{
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 
-   
 }

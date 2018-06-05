@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ventanas;
 
 import Clases.Conexion;
@@ -11,10 +6,6 @@ import java.sql.SQLException;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author UNI
- */
 public class VerHorario extends javax.swing.JDialog {
 
     /**
@@ -82,60 +73,60 @@ public class VerHorario extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     ResultSet resultado;
-    
-    public void CargarDatos(int ID_Medico){
-      
-String [] Header = {"Dia","Desde","Hasta"};    
-model.setColumnIdentifiers(Header);  
-this.jTable1.setModel(model);
-        
-String [] Datos = new String[3];
 
-try{
-    
-    resultado = Conexion.consulta("Select Dia, Hora_Inicial, Hora_Final from Horario "
-            + "Where ID_Medico = "+ID_Medico);
-    
-    while(resultado.next()){
-        
-       String Dia = resultado.getString(1);
-       
-       if("L".equals(Dia)){
-           Dia = "Lunes";
-       }
-       if("M".equals(Dia)){
-           Dia = "Martes";
-       }
-       if("X".equals(Dia)){
-           Dia = "Miercoles";
-       }
-       if("J".equals(Dia)){
-           Dia = "Jueves";
-       }
-       if("V".equals(Dia)){
-           Dia = "Viernes";
-       }
-       if("S".equals(Dia)){
-           Dia = "Sabado";
-       }
-       if("D".equals(Dia)){
-           Dia = "Domingo";
-       }
-       Datos [0] = Dia;
-       Datos [1] = resultado.getString(2);
-       Datos [2] = resultado.getString(3);
+    public void CargarDatos(int ID_Medico) {
 
-       model.addRow(Datos);
+        String[] Header = {"Dia", "Desde", "Hasta"};
+        model.setColumnIdentifiers(Header);
+        this.jTable1.setModel(model);
+
+        String[] Datos = new String[3];
+
+        try {
+
+            resultado = Conexion.consulta("Select Dia, Hora_Inicial, Hora_Final from Horario "
+                    + "Where ID_Medico = " + ID_Medico);
+
+            while (resultado.next()) {
+
+                String Dia = resultado.getString(1);
+
+                if ("L".equals(Dia)) {
+                    Dia = "Lunes";
+                }
+                if ("M".equals(Dia)) {
+                    Dia = "Martes";
+                }
+                if ("X".equals(Dia)) {
+                    Dia = "Miercoles";
+                }
+                if ("J".equals(Dia)) {
+                    Dia = "Jueves";
+                }
+                if ("V".equals(Dia)) {
+                    Dia = "Viernes";
+                }
+                if ("S".equals(Dia)) {
+                    Dia = "Sabado";
+                }
+                if ("D".equals(Dia)) {
+                    Dia = "Domingo";
+                }
+                Datos[0] = Dia;
+                Datos[1] = resultado.getString(2);
+                Datos[2] = resultado.getString(3);
+
+                model.addRow(Datos);
+            }
+
+        } catch (SQLException ex) {
+
+        }
+
+        jTable1.setModel(model);
+
     }
-    
-}catch(SQLException ex){
-    
-}
 
-jTable1.setModel(model);
-
-    }
-    
     DefaultTableModel model = new DefaultTableModel() {
 
         @Override
@@ -145,6 +136,7 @@ jTable1.setModel(model);
         }
 
     };
+
     /**
      * @param args the command line arguments
      */

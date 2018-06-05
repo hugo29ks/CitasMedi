@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ventanas;
 
 import Clases.Conexion;
@@ -18,10 +13,6 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
 
-/**
- *
- * @author UNI
- */
 public class AgregarUsuarioMedico extends javax.swing.JDialog {
 
     /**
@@ -116,29 +107,26 @@ public class AgregarUsuarioMedico extends javax.swing.JDialog {
         this.NombreUsuario = NombreUsuario;
         this.txtUser.setText(NombreUsuario);
     }
-    
-    
-    
-    public void Seleccionar(){
+
+    public void Seleccionar() {
         String Nombre = txtUser.getText().trim();
         String Pass = txtPass.getText();
-        
-        if("".equals(Nombre)||"".equals(Pass)){
+
+        if ("".equals(Nombre) || "".equals(Pass)) {
             JOptionPane.showMessageDialog(this, "Ingrese todos los campos", "Ingrese", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+
         Usuario.Agregar_Usuario(Nombre, Pass, "Medico");
         this.dispose();
     }
-    
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Seleccionar();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-      
-        
+
 // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
 

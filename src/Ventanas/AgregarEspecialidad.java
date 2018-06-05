@@ -1,18 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ventanas;
 
 import Clases.Especialidad;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author UNI
- */
 public class AgregarEspecialidad extends javax.swing.JInternalFrame {
 
     /**
@@ -146,47 +137,44 @@ public class AgregarEspecialidad extends javax.swing.JInternalFrame {
         setBounds(0, 0, 552, 395);
     }// </editor-fold>//GEN-END:initComponents
 
-    public void Guardar(){
+    public void Guardar() {
         String Nombre = txtNombre.getText().trim();
         String Descripcion = txtDescripcion.getText().trim();
-        
-        if("".equals(Nombre)||"".equals(Descripcion)){
-                 JOptionPane.showMessageDialog
-        (this, "Complete todos los campos","Complete",JOptionPane.ERROR_MESSAGE);
-         
-        }
-        else{
+
+        if ("".equals(Nombre) || "".equals(Descripcion)) {
+            JOptionPane.showMessageDialog(this, "Complete todos los campos", "Complete", JOptionPane.ERROR_MESSAGE);
+
+        } else {
             Especialidad.Agregar_Especialidad(Nombre, Descripcion);
             Limpiar();
         }
     }
-    
-    public void Limpiar(){
+
+    public void Limpiar() {
         txtDescripcion.setText("");
         txtNombre.setText("");
     }
-    
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-Guardar(); 
+        Guardar();
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-this.dispose();        // TODO add your handling code here:
+        this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-Limpiar();        // TODO add your handling code here:
+        Limpiar();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
-char a = evt.getKeyChar();
+        char a = evt.getKeyChar();
 
-if(!Character.isLetter(a)&&!Character.isISOControl(a)&&a!=' '){
-    evt.consume();
-    Toolkit.getDefaultToolkit().beep();
-}
-
+        if (!Character.isLetter(a) && !Character.isISOControl(a) && a != ' ') {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }
 
 // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreKeyTyped

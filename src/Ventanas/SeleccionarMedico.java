@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ventanas;
 
 import Clases.Conexion;
@@ -19,10 +14,6 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
 
-/**
- *
- * @author UNI
- */
 public class SeleccionarMedico extends javax.swing.JDialog {
 
     /**
@@ -127,26 +118,24 @@ public class SeleccionarMedico extends javax.swing.JDialog {
         this.Opcion = Opcion;
     }
 
-
-    
-    public void Seleccionar(){
+    public void Seleccionar() {
         int cmbMed = cmbMedico.getSelectedIndex();
-        
-        if(cmbMed<0){
-            JOptionPane.showMessageDialog(this, "Seleccione al Medico","Seleccione",JOptionPane.ERROR_MESSAGE);
+
+        if (cmbMed < 0) {
+            JOptionPane.showMessageDialog(this, "Seleccione al Medico", "Seleccione", JOptionPane.ERROR_MESSAGE);
             return;
         }
         int ID_Medico = ID_Med[cmbMed];
-        
+
         ModoReporte MR = new ModoReporte(null, false);
         MR.setID_M(ID_Medico);
-        System.out.println("IDM "+ID_Medico);
+        System.out.println("IDM " + ID_Medico);
         MR.setOpcion(Opcion);
         MR.setVisible(true);
         MR.toFront();
         this.dispose();
     }
-    
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Seleccionar();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -155,45 +144,44 @@ public class SeleccionarMedico extends javax.swing.JDialog {
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
     ResultSet resultado;
-    int [] ID_Med;
+    int[] ID_Med;
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-       
-        
+
         cmbMedico.removeAllItems();
         cmbMedico.addItem("<Seleccione>");
-           
+
         int MaxID = 0;
-        
-      try{
-          
-          resultado = Conexion.consulta("Select MAX(ID_Medico) from Medico");
-          while(resultado.next()){
-           MaxID = resultado.getInt(1);
-          }
-      }catch(SQLException ex){
-          System.out.println("erro");
-      }
-        
-      MaxID++;
-      
-      ID_Med = new int [MaxID];
-      ID_Med [0] = 0;
-      
-      int i = 1;
-        
-      try{
-          
-          resultado = Conexion.consulta("Select ID_Medico, Nombres, Apellidos from Medico where Estado = "+true);
-          while(resultado.next()){
-           ID_Med[i] = resultado.getInt(1);
-    
-           cmbMedico.addItem(resultado.getString(2).trim()+" "+resultado.getString(3).trim());
-           i++;
-          }
-      }catch(SQLException ex){
-          
-      }
-        
+
+        try {
+
+            resultado = Conexion.consulta("Select MAX(ID_Medico) from Medico");
+            while (resultado.next()) {
+                MaxID = resultado.getInt(1);
+            }
+        } catch (SQLException ex) {
+            System.out.println("erro");
+        }
+
+        MaxID++;
+
+        ID_Med = new int[MaxID];
+        ID_Med[0] = 0;
+
+        int i = 1;
+
+        try {
+
+            resultado = Conexion.consulta("Select ID_Medico, Nombres, Apellidos from Medico where Estado = " + true);
+            while (resultado.next()) {
+                ID_Med[i] = resultado.getInt(1);
+
+                cmbMedico.addItem(resultado.getString(2).trim() + " " + resultado.getString(3).trim());
+                i++;
+            }
+        } catch (SQLException ex) {
+
+        }
+
 // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
 

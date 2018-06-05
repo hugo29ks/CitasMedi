@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ventanas;
 
 import Clases.Conexion;
@@ -20,10 +15,6 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
-/**
- *
- * @author UNI
- */
 public class AgregarConsulta extends javax.swing.JInternalFrame {
 
     /**
@@ -282,7 +273,7 @@ public class AgregarConsulta extends javax.swing.JInternalFrame {
             String ID = (String) model.getValueAt(fila, 2);
             String Estado = (String) model.getValueAt(fila, 1);
             CharSequence Pendiente = "(Pendiente)";
-            if(!Estado.contains(Pendiente)){
+            if (!Estado.contains(Pendiente)) {
                 JOptionPane.showMessageDialog(this, "Seleccione una cita PENDIENTE unicamente", "Seleccione",
                         JOptionPane.ERROR_MESSAGE);
                 return;
@@ -331,27 +322,28 @@ public class AgregarConsulta extends javax.swing.JInternalFrame {
 
     int ID_Medico = 0;
     boolean flag = false;
-    
-    public void CargarMedico(){
-        
-        try{
-            
-       resultado = Conexion.consulta("Select ID_Medico from Medico where ID_Usuario = "+Principal.ID_Usuario);
-       
-       while(resultado.next()){
-           
-           ID_Medico = resultado.getInt(1);
-           System.out.println("ID "+ID_Medico);
-           
-       }
-    }catch(SQLException ex){}
+
+    public void CargarMedico() {
+
+        try {
+
+            resultado = Conexion.consulta("Select ID_Medico from Medico where ID_Usuario = " + Principal.ID_Usuario);
+
+            while (resultado.next()) {
+
+                ID_Medico = resultado.getInt(1);
+                System.out.println("ID " + ID_Medico);
+
+            }
+        } catch (SQLException ex) {
+        }
     }
-    
+
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
 
         CargarMedico();
-        
+
         Date Hoy = new Date();
 
         jCalendar1.setMinSelectableDate(Hoy);
@@ -380,7 +372,6 @@ public class AgregarConsulta extends javax.swing.JInternalFrame {
 
         jTable1.setColumnModel(columnModel);
 
-      //   jTable1.removeColumn(jTable1.getColumnModel().getColumn(2));
         CargarHorario();
 // TODO add your handling code here:
     }//GEN-LAST:event_formInternalFrameOpened
@@ -423,8 +414,8 @@ public class AgregarConsulta extends javax.swing.JInternalFrame {
 
     public void CargarHorario() {
 
-                 this.jTable1.setEnabled(true);
-                 
+        this.jTable1.setEnabled(true);
+
         String[] Horas = {"8:00 A.M", "9:00 A.M", "10:00 A.M", "11:00 A.M", "12:00 P.M", "1:00 P.M",
             "2:00 P.M", "3:00 P.M", "4:00 P.M", "5:00 P.M"};
 
@@ -454,7 +445,7 @@ public class AgregarConsulta extends javax.swing.JInternalFrame {
         ckV.setSelected(V);
         ckS.setSelected(S);
         ckD.setSelected(D);
-  
+
         ArrayList<String> Dias = new ArrayList<>();
         ArrayList<String> Hora_Inicial = new ArrayList<>();
         ArrayList<String> Hora_Final = new ArrayList<>();
@@ -539,32 +530,30 @@ public class AgregarConsulta extends javax.swing.JInternalFrame {
             default:
                 break;
         }
-        
-       int item = 0;
-       
-       if(Dias.contains(Day)){
-           
-           item = Dias.indexOf(Day);
-           
-       }
-       else{
-           
-           for(int r=0; r<jTable1.getRowCount();r++){
-               jTable1.setValueAt("No Disponible", r, 1);
-           }
-           
-             this.jTable1.setEnabled(false);
+
+        int item = 0;
+
+        if (Dias.contains(Day)) {
+
+            item = Dias.indexOf(Day);
+
+        } else {
+
+            for (int r = 0; r < jTable1.getRowCount(); r++) {
+                jTable1.setValueAt("No Disponible", r, 1);
+            }
+
+            this.jTable1.setEnabled(false);
             jTable1.setDefaultRenderer(Object.class, new MiRenderDisable());
             return;
-       }
+        }
 
         int Horai = 0;
         int Horaf = 0;
 
         HoraInicio = Hora_Inicial.get(item);
         HoraFinal = Hora_Final.get(item);
-        
-        
+
         for (int r = 0; r < 10; r++) {
 
             String HRM = (String) model.getValueAt(r, 0);
@@ -605,8 +594,8 @@ public class AgregarConsulta extends javax.swing.JInternalFrame {
 
                     if (Hrs.get(p).equalsIgnoreCase(HRM)) {
 
-                        model.setValueAt(" Cita con " + Pacientes.get(p) + 
-                                " (" + Estados.get(p).trim() +")", q, 1);
+                        model.setValueAt(" Cita con " + Pacientes.get(p)
+                                + " (" + Estados.get(p).trim() + ")", q, 1);
                         model.setValueAt(Citas.get(p), q, 2);
 
                     }
@@ -615,31 +604,31 @@ public class AgregarConsulta extends javax.swing.JInternalFrame {
             }
 
         }
-        
-         for (String Dia1 : Dias) {
-            
-            if(Dia1.equalsIgnoreCase("L")){
-                L=true;
+
+        for (String Dia1 : Dias) {
+
+            if (Dia1.equalsIgnoreCase("L")) {
+                L = true;
             }
-            if(Dia1.equalsIgnoreCase("M")){
-                M=true;
+            if (Dia1.equalsIgnoreCase("M")) {
+                M = true;
             }
-            if(Dia1.equalsIgnoreCase("X")){
-                X=true;
+            if (Dia1.equalsIgnoreCase("X")) {
+                X = true;
             }
-            if(Dia1.equalsIgnoreCase("J")){
-                J=true;
+            if (Dia1.equalsIgnoreCase("J")) {
+                J = true;
             }
-            if(Dia1.equalsIgnoreCase("V")){
-                V=true;
+            if (Dia1.equalsIgnoreCase("V")) {
+                V = true;
             }
-            if(Dia1.equalsIgnoreCase("S")){
-                S=true;
+            if (Dia1.equalsIgnoreCase("S")) {
+                S = true;
             }
-            if(Dia1.equalsIgnoreCase("D")){
-                D=true;
+            if (Dia1.equalsIgnoreCase("D")) {
+                D = true;
             }
-            
+
         }
 
         ckL.setSelected(L);
@@ -748,15 +737,14 @@ public class AgregarConsulta extends javax.swing.JInternalFrame {
                 int row,
                 int column) {
             super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-           
-            
+
             CharSequence Libre = " Libre";
             CharSequence Atendida = "(Atendida)";
             CharSequence Cancelada = "(Cancelada)";
             CharSequence Pendiente = "(Pendiente)";
-            
+
             String Valor = (String) value;
-            
+
             if (column == 1 && Valor.contains(Libre)) {
                 this.setBackground(new Color(27, 94, 32)); //Verde
                 this.setForeground(Color.WHITE);

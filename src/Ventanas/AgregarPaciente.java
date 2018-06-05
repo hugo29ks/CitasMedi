@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ventanas;
 
 import Clases.Conexion;
@@ -19,10 +14,6 @@ import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-/**
- *
- * @author UNI
- */
 public class AgregarPaciente extends javax.swing.JInternalFrame {
 
     /**
@@ -260,164 +251,101 @@ public class AgregarPaciente extends javax.swing.JInternalFrame {
         setBounds(0, 0, 656, 386);
     }// </editor-fold>//GEN-END:initComponents
 
-    public void Guardar(){
-        
+    public void Guardar() {
+
         String Nombre = txtNombre.getText().trim();
         String Apellido = txtApellido.getText().trim();
         String Telefono = txtTelefono.getText().trim();
-        String Genero = (String) cmbGenero.getSelectedItem(); 
+        String Genero = (String) cmbGenero.getSelectedItem();
         String Cedula = txtCedulaPa.getText().trim();
         String Correo = txtCorreoPa.getText().trim();
-        
-//        String EdadF = txtGenero.getText().trim();
-        //float Peso = Float.parseFloat(PesoF);
-        //float Altura = Float.parseFloat(AlturaF);
-    //    int Edad = Integer.parseInt(EdadF);
-          //String Alergias = txtAlergia.getText().trim();
-    //    String Enfermedades = txtEnfermedad.getText().trim();
-        
-        
-        if("".equals(Nombre)||"".equals(Apellido)||"<Seleccione>".equals(Genero)||
-                "".equals(Cedula)||"".equals(Correo)||"".equals(Telefono)){
-                    JOptionPane.showMessageDialog
-        (this, "Complete todos los campos y seleccione correctamente",
-                "Complete",JOptionPane.ERROR_MESSAGE);
+
+        if ("".equals(Nombre) || "".equals(Apellido) || "<Seleccione>".equals(Genero)
+                || "".equals(Cedula) || "".equals(Correo) || "".equals(Telefono)) {
+            JOptionPane.showMessageDialog(this, "Complete todos los campos y seleccione correctamente",
+                    "Complete", JOptionPane.ERROR_MESSAGE);
         }
-         if(verificarCedula(Cedula)==false){
-         JOptionPane.showMessageDialog
-        (this, "La cedula ingresada no es valida",
-                "Corrija",JOptionPane.ERROR_MESSAGE);
+        if (verificarCedula(Cedula) == false) {
+            JOptionPane.showMessageDialog(this, "La cedula ingresada no es valida",
+                    "Corrija", JOptionPane.ERROR_MESSAGE);
         }
-          if(validarEmailFuerte(Correo)==false){
-         JOptionPane.showMessageDialog
-        (this, "El correo no cumple con la estructura correcta Ej:graciela.moreno@epn.edu.ec",
-                "Corrija",JOptionPane.ERROR_MESSAGE);
-        }
-        else{
+        if (validarEmailFuerte(Correo) == false) {
+            JOptionPane.showMessageDialog(this, "El correo no cumple con la estructura correcta Ej:graciela.moreno@epn.edu.ec",
+                    "Corrija", JOptionPane.ERROR_MESSAGE);
+        } else {
             Paciente.Agregar_Paciente(Nombre, Apellido, Telefono, Genero, Cedula, Correo);
             Limpiar();// TODO add your handling code here:
 
-            }
-        
+        }
+
     }
-    
- /*    public void ValidarDinero(java.awt.event.KeyEvent evt, JTextField txtPrecio) {
-        
-        char a = evt.getKeyChar();
-        
-        if (!Character.isDigit(a) && !Character.isISOControl(a) && a != '.') {
-            Toolkit.getDefaultToolkit().beep();
-            evt.consume();
-            return;
-        }
-        
-        if ("0".equals(txtPrecio.getText()) && txtPrecio.getCaretPosition() == 1 && a != '.' && !Character.isISOControl(a)) {
-            txtPrecio.setText(txtPrecio.getText() + ".");
-//        return;
-        }
-        
-        if (a == '.' && txtPrecio.getText().contains(".")) {
-            Toolkit.getDefaultToolkit().beep();
-            evt.consume();
-            return;
-        }
-        
-        String x1 = "";
-        if (Character.isDigit(a) || (Character.isISOControl(a) && !"".equals(txtPrecio.getText()))) {
-            x1 = txtPrecio.getText();
-        }
-        if (Character.isDigit(a) || (a == '.')) {
-            x1 = txtPrecio.getText().concat(String.valueOf(a));
-        }
-        
-        if (!"".equals(x1)) {
-            
-            try {
-                
-                Double x = Double.parseDouble(x1);
-                
-                if (x > Double.MAX_VALUE) {
-                    Toolkit.getDefaultToolkit().beep();
-                    evt.consume();
-                }
-                
-            } catch (NumberFormatException ex) {
-                Toolkit.getDefaultToolkit().beep();
-                evt.consume();
-            }
-        }
-        
-    }*/
-    
+
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-Guardar(); 
+        Guardar();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     ResultSet resultado;
-    int ID_Esp [];
-    
+    int ID_Esp[];
+
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
-        
+
 // TODO add your handling code here:
     }//GEN-LAST:event_formInternalFrameOpened
 
-
-    public void Limpiar(){
+    public void Limpiar() {
         txtApellido.setText("");
         txtTelefono.setText("");
-     //   txtAlergia.setText("");
         txtCorreoPa.setText("");
         txtNombre.setText("");
-       // txtEnfermedad.setText("");
         txtCedulaPa.setText("");
-        //txtGenero.setText("");
         cmbGenero.setSelectedIndex(0);
-        
+
     }
-    
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-Limpiar();        // TODO add your handling code here:
+        Limpiar();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-this.dispose();        // TODO add your handling code here:
+        this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
-char a = evt.getKeyChar();
+        char a = evt.getKeyChar();
 
-if(!Character.isLetter(a)&&!Character.isISOControl(a)&&a!=' '){
-    evt.consume();
-    Toolkit.getDefaultToolkit().beep();
-}        // TODO add your handling code here:
+        if (!Character.isLetter(a) && !Character.isISOControl(a) && a != ' ') {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreKeyTyped
 
     private void txtApellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoKeyTyped
-char a = evt.getKeyChar();
+        char a = evt.getKeyChar();
 
-if(!Character.isLetter(a)&&!Character.isISOControl(a)&&a!=' '){
-    evt.consume();
-    Toolkit.getDefaultToolkit().beep();
-}        // TODO add your handling code here:
+        if (!Character.isLetter(a) && !Character.isISOControl(a) && a != ' ') {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidoKeyTyped
 
     private void txtCedulaPaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaPaKeyTyped
-      
+
         char a = evt.getKeyChar();
 
-        if (txtCedulaPa.getText().length()>=10){
-             evt.consume();
-    Toolkit.getDefaultToolkit().beep();
+        if (txtCedulaPa.getText().length() >= 10) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
         }
-if(!Character.isDigit(a) ){
-    evt.consume();
-    Toolkit.getDefaultToolkit().beep();
-}        // TODO add your handling code here:
-        
+        if (!Character.isDigit(a)) {
+            evt.consume();
+            Toolkit.getDefaultToolkit().beep();
+        }        // TODO add your handling code here:
+
     }//GEN-LAST:event_txtCedulaPaKeyTyped
 
     private void txtCorreoPaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCorreoPaKeyTyped
-       // ValidarDinero(evt, txtCorreoPa);        // TODO add your handling code here:
+        // ValidarDinero(evt, txtCorreoPa);        // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoPaKeyTyped
 
     private void txtCedulaPaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedulaPaActionPerformed

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ventanas;
 
 import Clases.Conexion;
@@ -15,10 +10,6 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
 
-/**
- *
- * @author UNI
- */
 public class ModoReporte extends javax.swing.JDialog {
 
     /**
@@ -122,15 +113,14 @@ public class ModoReporte extends javax.swing.JDialog {
     public void setID_M(int ID_M) {
         this.ID_M = ID_M;
     }
-    
+
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-     
-        
+
 // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
 
@@ -141,21 +131,21 @@ public class ModoReporte extends javax.swing.JDialog {
         SS.setOpcion(Opcion);
         SS.setVisible(true);
         SS.toFront();
-        
+
         this.dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        
+
         SeleccionarMes SM = new SeleccionarMes(null, false);
         SM.setID_M(ID_M);
         SM.setOpcion(Opcion);
         SM.setVisible(true);
         SM.toFront();
-        
+
         this.dispose();
-        
+
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 

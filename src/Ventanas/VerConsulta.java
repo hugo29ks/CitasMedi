@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ventanas;
 
 import Clases.Conexion;
@@ -15,10 +10,6 @@ import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author UNI
- */
 public class VerConsulta extends javax.swing.JInternalFrame {
 
     /**
@@ -167,37 +158,30 @@ public class VerConsulta extends javax.swing.JInternalFrame {
         setBounds(0, 0, 705, 510);
     }// </editor-fold>//GEN-END:initComponents
 
-    public void Modificar(){
-        
-      
-int Fila = jTable1.getSelectedRow();
+    public void Modificar() {
 
-       // System.out.println("Fila "+Fila);
+        int Fila = jTable1.getSelectedRow();
 
-if(Fila >= 0){
-  
-    int ID = Integer.parseInt(model.getValueAt(Fila, 0).toString());
-    
-        ModificarDiagnostico MD = new ModificarDiagnostico(null, true);
-        MD.CargarDatos(ID);
-        MD.setVC(this);
-        MD.setVisible(true);
-        
-//        this.toBack();
-//        ME.toFront();
-        
-    
-}
-else{
-    JOptionPane.showMessageDialog(this, "Debe seleccionar el registro a modificar", 
-            "Seleccione", JOptionPane.ERROR_MESSAGE);  
-}
-  
+        // System.out.println("Fila "+Fila);
+        if (Fila >= 0) {
+
+            int ID = Integer.parseInt(model.getValueAt(Fila, 0).toString());
+
+            ModificarDiagnostico MD = new ModificarDiagnostico(null, true);
+            MD.CargarDatos(ID);
+            MD.setVC(this);
+            MD.setVisible(true);
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar el registro a modificar",
+                    "Seleccione", JOptionPane.ERROR_MESSAGE);
+        }
+
     }
-    
-    
+
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-Modificar();
+        Modificar();
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -206,11 +190,11 @@ Modificar();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     ResultSet resultado;
-    
-    public void CargarDatos(){
-           
+
+    public void CargarDatos() {
+
         model.setRowCount(0);
-        
+
         String[] Header = {"No.", "Fecha cita", "Medico", "Paciente", "Descripcion consulta",
             "Diagnostico", "Receta", "Estado"};
         model.setColumnIdentifiers(Header);
@@ -252,49 +236,45 @@ Modificar();
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
 
-     CargarDatos();
+        CargarDatos();
 
 // TODO add your handling code here:
     }//GEN-LAST:event_formInternalFrameOpened
 
-      public void ActDes(){
-        
-           
-int Fila = jTable1.getSelectedRow();
-int Col = 7;
+    public void ActDes() {
 
-     //   System.out.println("Fila "+Fila);
+        int Fila = jTable1.getSelectedRow();
+        int Col = 7;
 
-if(Fila >= 0){
-  
-    int ID = Integer.parseInt(model.getValueAt(Fila, 0).toString());
-    String Estado = model.getValueAt(Fila, Col).toString();
-    
-    if(Estado.equalsIgnoreCase("Activo")){
-     Consulta.Desactivar_Consulta(ID); //Des  
-    }
-    if(Estado.equalsIgnoreCase("Inactivo")){
-      Consulta.Activar_Consulta(ID);  //Act
+        if (Fila >= 0) {
+
+            int ID = Integer.parseInt(model.getValueAt(Fila, 0).toString());
+            String Estado = model.getValueAt(Fila, Col).toString();
+
+            if (Estado.equalsIgnoreCase("Activo")) {
+                Consulta.Desactivar_Consulta(ID); //Des  
+            }
+            if (Estado.equalsIgnoreCase("Inactivo")) {
+                Consulta.Activar_Consulta(ID);  //Act
+            }
+
+            CargarDatos();
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe seleccionar el registro a Activar/Desactivar",
+                    "Seleccione", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
-    CargarDatos();
-    
-}
-else{
-    JOptionPane.showMessageDialog(this, "Debe seleccionar el registro a Activar/Desactivar", 
-            "Seleccione", JOptionPane.ERROR_MESSAGE);  
-} 
-    }
-    
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-     ActDes();   // TODO add your handling code here:
+        ActDes();   // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    public void Buscar(){
-          String Buscar = txtBuscar.getText();
-          
-              model.setRowCount(0);
-        
+    public void Buscar() {
+        String Buscar = txtBuscar.getText();
+
+        model.setRowCount(0);
+
         String[] Header = {"No.", "Fecha cita", "Medico", "Paciente", "Descripcion consulta",
             "Diagnostico", "Receta", "Estado"};
         model.setColumnIdentifiers(Header);
@@ -303,20 +283,18 @@ else{
 
         try {
 
-               if(cmbBusc.getSelectedIndex()==0){
-            resultado = Conexion.consulta("Select * from ConsultaV "
-                    + "where Nombres like '%"+Buscar+"%' "
-                    + "or Apellidos like '%"+Buscar+"%'");
-               }
-               
-               
-               if(cmbBusc.getSelectedIndex()==1){
-            resultado = Conexion.consulta("Select * from ConsultaV "
-                    + "where NombresMed like '%"+Buscar+"%' "
-                    + "or ApellidosMed like '%"+Buscar+"%'");
-               }
-         
-                 
+            if (cmbBusc.getSelectedIndex() == 0) {
+                resultado = Conexion.consulta("Select * from ConsultaV "
+                        + "where Nombres like '%" + Buscar + "%' "
+                        + "or Apellidos like '%" + Buscar + "%'");
+            }
+
+            if (cmbBusc.getSelectedIndex() == 1) {
+                resultado = Conexion.consulta("Select * from ConsultaV "
+                        + "where NombresMed like '%" + Buscar + "%' "
+                        + "or ApellidosMed like '%" + Buscar + "%'");
+            }
+
             while (resultado.next()) {
                 Datos[0] = String.valueOf(resultado.getInt(1));
                 SimpleDateFormat SDF = new SimpleDateFormat("dd-MMM-yyyy");
@@ -345,9 +323,9 @@ else{
 
         jTable1.setModel(model);
     }
-    
+
     private void txtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyReleased
-Buscar();        // TODO add your handling code here:
+        Buscar();        // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscarKeyReleased
 
     DefaultTableModel model = new DefaultTableModel() {
