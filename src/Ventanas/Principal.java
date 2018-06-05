@@ -78,12 +78,12 @@ public class Principal extends javax.swing.JFrame {
 
         DesktopPane = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        Medico = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        VerMedico = new javax.swing.JMenuItem();
         Paciente = new javax.swing.JMenu();
         AgregarPaciente = new javax.swing.JMenuItem();
         jMenuItem13 = new javax.swing.JMenuItem();
+        Medico = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        VerMedico = new javax.swing.JMenuItem();
         Cita = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem16 = new javax.swing.JMenuItem();
@@ -111,32 +111,6 @@ public class Principal extends javax.swing.JFrame {
         DesktopPane = new Panel_Fondo();
         getContentPane().add(DesktopPane, java.awt.BorderLayout.CENTER);
 
-        Medico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1435341736_doctor.png"))); // NOI18N
-        Medico.setText("Medico");
-        Medico.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
-
-        jMenuItem1.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1435355822_sign-add.png"))); // NOI18N
-        jMenuItem1.setText("Agregar");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        Medico.add(jMenuItem1);
-
-        VerMedico.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
-        VerMedico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1435355706_computer.png"))); // NOI18N
-        VerMedico.setText("Ver");
-        VerMedico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VerMedicoActionPerformed(evt);
-            }
-        });
-        Medico.add(VerMedico);
-
-        jMenuBar1.add(Medico);
-
         Paciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1435341967_nurse.png"))); // NOI18N
         Paciente.setText("Paciente");
         Paciente.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
@@ -162,6 +136,32 @@ public class Principal extends javax.swing.JFrame {
         Paciente.add(jMenuItem13);
 
         jMenuBar1.add(Paciente);
+
+        Medico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1435341736_doctor.png"))); // NOI18N
+        Medico.setText("Medico");
+        Medico.setFont(new java.awt.Font("Noto Sans", 1, 14)); // NOI18N
+
+        jMenuItem1.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1435355822_sign-add.png"))); // NOI18N
+        jMenuItem1.setText("Agregar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        Medico.add(jMenuItem1);
+
+        VerMedico.setFont(new java.awt.Font("Noto Sans", 0, 14)); // NOI18N
+        VerMedico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1435355706_computer.png"))); // NOI18N
+        VerMedico.setText("Ver");
+        VerMedico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VerMedicoActionPerformed(evt);
+            }
+        });
+        Medico.add(VerMedico);
+
+        jMenuBar1.add(Medico);
 
         Cita.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/1435342034_calendar-date-month-planner.png"))); // NOI18N
         Cita.setText("Citas");
